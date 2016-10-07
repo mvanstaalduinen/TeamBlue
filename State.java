@@ -5,10 +5,19 @@ import java.util.List;
 
 public class State {
     
-    private ArrayList<Piece> state = new ArrayList<>();
+    private final ArrayList<Piece> state = new ArrayList<>();
     
     State()
     {
+    }
+    
+    public List<Piece> getState()
+    {
+        ArrayList<Piece> result = new ArrayList<>();
+        for (int i = 0; i < state.size(); i++){
+            result.add(state.get(i));
+        }
+        return result;
     }
     
     @Override
@@ -40,6 +49,19 @@ public class State {
             result.addToState(item);
         }
         
+        return result;
+    }
+    
+    public List<Piece> stateWithNoZero()
+    {
+        ArrayList<Piece> result = new ArrayList<>();
+        
+        for (Piece p : state) {
+            if (p.getSmallDisk() != 0) {
+                result.add(p);
+            }
+        }
+        //System.out.println(result.toString());
         return result;
     }
 }

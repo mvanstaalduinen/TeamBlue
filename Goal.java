@@ -2,19 +2,26 @@ package abpuzzle;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class Goal {
     
-    private static final List<Integer> goalState = new ArrayList<>();
+    private static ArrayList<Piece> goalState = new ArrayList<>();
     
-    Goal(ArrayList<Piece> orig)
+    Goal(State orig)
     {
-        ArrayList<Piece> tmp = (ArrayList<Piece>) orig;
-        Collections.sort(tmp, (Piece o1, Piece o2) -> o1.getSmallDisk() - (o2.getSmallDisk()));
-        
-        System.out.println(orig.toString());
-        
+        goalState = (ArrayList<Piece>) orig.getState();
+        Collections.sort(goalState, (Piece o1, Piece o2) -> o1.getSmallDisk() - (o2.getSmallDisk()));      
+        goalState.remove(0);
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "I'll get to it if we need it.";
+    }
+    
+    public boolean checkState(State state)
+    {
+        return state.stateWithNoZero().equals(goalState);
     }
 }
