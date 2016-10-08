@@ -1,27 +1,45 @@
 package abpuzzle;
 
 public class Piece {
-    
+
     private int smallDisk;
-    
-    Piece (int sd) {
+    private Piece rightNeighbour;
+    private Piece leftNeighbour;
+
+    Piece (int sd)
+    {
         smallDisk = sd;
     }
-    
+
     public int getSmallDisk()
     {
         return smallDisk;
     }
-    
-    public void setSmallDisk(int value)
+
+    public setRightNeighbour(Piece right)
     {
-        smallDisk = value;
+	rightNeighbour = right;
     }
-    
+
+    public setLeftNeighbour(Piece left)
+    {
+	leftNeighbour = left;    
+    }
+
+    public int getRightNeighbout()
+    {
+	return rightNeighbour.getSmallDisk();
+    }
+
+    public int getLeftNeighbour()
+    {
+	return leftNeighbour.getSmallDisk();
+    }
+
     @Override
     public String toString()
     {
         return Integer.toString(smallDisk);
     }
-    
+
 }
