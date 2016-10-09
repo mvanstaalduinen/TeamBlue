@@ -1,6 +1,7 @@
 package abpuzzle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
     
@@ -20,5 +21,15 @@ public class Board {
             result += item;
         }
         return result;
+    }
+    
+    public int getPosition(int pos)
+    {
+        return board.get(pos);
+    }
+    
+    public List<Integer> getBoard()
+    {
+        return board;
     }
 }
