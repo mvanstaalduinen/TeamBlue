@@ -1,6 +1,7 @@
 package abpuzzle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class State {
@@ -16,6 +17,11 @@ public class State {
         state = (ArrayList<Piece>) source.getState();
     }
     
+    State(ArrayList<Piece> source)
+    {
+        state = source;
+    }
+    
     public List<Piece> getState()
     {
         ArrayList<Piece> result = new ArrayList<>();
@@ -28,12 +34,14 @@ public class State {
     @Override
     public String toString()
     {
-        String result = "";
+        return state.toString();
+        
+        /*String result = "";
         
         for (Piece item : state) {
             result += item.getSmallDisk();
         }
-        return result;
+        return result;*/
     }
     
     public void addToState(Piece p)
@@ -43,7 +51,7 @@ public class State {
     
     public State changeState(int firstIndex, int secondIndex, int distance)
     {   
-        if (secondIndex >= state.size()) {
+        if (secondIndex >= state.size() || secondIndex < 0) {
             secondIndex = (secondIndex % state.size());
         }
         System.out.println("Second Index: " + secondIndex);
@@ -98,5 +106,10 @@ public class State {
             result.add(changeState(indexOfZero, indexOfZero - distance, distance));
         }
         return result;
+    }
+    
+    public void reverseState()
+    {
+        Collections.reverse(state);
     }
 }
