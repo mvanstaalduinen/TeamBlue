@@ -16,12 +16,12 @@ public class Piece {
         return smallDisk;
     }
 
-    public setRightNeighbour(Piece right)
+    public void setRightNeighbour(Piece right)
     {
 	rightNeighbour = right;
     }
 
-    public setLeftNeighbour(Piece left)
+    public void setLeftNeighbour(Piece left)
     {
 	leftNeighbour = left;    
     }
