@@ -8,6 +8,7 @@ import java.util.List;
 public class State {
     
     private ArrayList<Piece> state = new ArrayList<>();
+    private int totalFriends;
     
     State()
     {
@@ -16,11 +17,38 @@ public class State {
     State(State source)
     {
         state = (ArrayList<Piece>) source.getState();
+        setNeighbours();
+        
     }
     
     State(ArrayList<Piece> source)
     {
         state = source;
+        setNeighbours();
+    }
+    
+    private void setNeighbours() 
+    {
+        for (Piece p : state) {
+            int j = state.indexOf(p);
+            if (j == 0) {
+                p.setLeftNeighbour(state.get((state.size() - 1)));
+                p.setRightNeighbour(state.get(j+1));
+            }
+            else if (j < (state.size() - 1)) {          
+                p.setLeftNeighbour(state.get(j-1));
+                p.setRightNeighbour(state.get(j+1));
+            }
+            else {
+                p.setLeftNeighbour(state.get(j-1));
+                p.setRightNeighbour(state.get(0));
+            }
+        }
+    }
+    
+    private void setFriends()
+    {
+        
     }
     
     public List<Piece> getState()
