@@ -1,4 +1,4 @@
-package abpuzzle;
+
 
 public class Piece {
 
@@ -15,15 +15,29 @@ public class Piece {
     {
         return smallDisk;
     }
+    
+    public void setSmallDisk(int sd)
+    {
+        smallDisk = sd;
+    }
 
-    public setRightNeighbour(Piece right)
+    public void setRightNeighbour(Piece right)
     {
 	rightNeighbour = right;
     }
 
-    public setLeftNeighbour(Piece left)
+    public void setLeftNeighbour(Piece left)
     {
 	leftNeighbour = left;    
+    }
+    
+    public boolean checkRightNeighbour() 
+    {
+        if ( smallDisk == rightNeighbour.getSmallDisk()) {
+            return true;
+        }
+        else
+            return false;
     }
 
     public int getRightNeighbout()
@@ -34,6 +48,19 @@ public class Piece {
     public int getLeftNeighbour()
     {
 	return leftNeighbour.getSmallDisk();
+    }
+    
+    public boolean isZero()
+    {
+        if (smallDisk == 0) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isEqual(Piece p) 
+    {
+        return smallDisk == p.getSmallDisk();
     }
 
     @Override
