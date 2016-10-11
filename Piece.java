@@ -31,9 +31,9 @@ public class Piece {
 	leftNeighbour = left;    
     }
     
-    public boolean checkRightNeighbour() 
+    public boolean checkSorted() 
     {
-        if ( smallDisk == rightNeighbour.getSmallDisk()) {
+        if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
         }
         else
