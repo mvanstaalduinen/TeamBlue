@@ -31,16 +31,21 @@ public class Piece {
 	leftNeighbour = left;    
     }
     
-    public boolean checkRightNeighbour() 
+    public boolean checkSorted() 
     {
-        if ( smallDisk == rightNeighbour.getSmallDisk()) {
+        if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
-        }
-        else
+        } else if ((smallDisk == 0)) {
+            if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk())) {
+                return true;
+            }
+         } else if ((smallDisk == leftNeighbour.getSmallDisk()) && (0 == rightNeighbour.getSmallDisk())) {
+             return true;
+         }
             return false;
     }
 
-    public int getRightNeighbout()
+    public int getRightNeighbour()
     {
 	return rightNeighbour.getSmallDisk();
     }
