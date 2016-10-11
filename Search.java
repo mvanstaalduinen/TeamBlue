@@ -2,8 +2,10 @@
 import java.util.ArrayList;
 
 public class Search {
-    Search(){
-    }
+    
+    private FringeList fringe;
+    private ClosedList closed;
+    
     
     /*startSearch: Search.startSeach(initialstate);
     Description: creates the fringes, closed list and starts the search
@@ -11,9 +13,9 @@ public class Search {
     Input: The initialstate
     Outputs: None
     */
-    public void startSearch(State initialState){
-        FringeList fringe = new FringeList();
-        ClosedList closed = new ClosedList();
+    public Search(State initialState){
+        fringe = new FringeList();
+        closed = new ClosedList();
         SearchNode rootNode = new SearchNode(initialState);
         fringe.addToFringe(rootNode);
     }
@@ -24,7 +26,7 @@ public class Search {
     Inputs: fringe: The fringe List
     Outputs: the selected node based on the Heuristics
     */
-    public SearchNode getBest(FringeList fringe) {
+    public SearchNode getBest() {
         ArrayList<SearchNode> listOfNodes = new ArrayList<>();
         listOfNodes=fringe.getEverything();
         for (SearchNode item : listOfNodes) {
@@ -48,6 +50,9 @@ public class Search {
         currentStateforNode=nodeToExpand.getCurrent();
         
         childrenStates=currentStateforNode.produceChildren(board);
+        for (State s : childrenStates) {
+            System.out.println("Children: " + s.toString()); 
+        }
         for (State item : childrenStates) { //for each state expand to node and add to list
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
             childrenNodes.add(newChildNode);    
