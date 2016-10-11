@@ -28,24 +28,18 @@ public class ABPuzzle {
         System.out.println(goal.checkState(state));
         
         System.out.println("State change!\n");
-
-        unexplored = state.produceChildren(board);
-
-        for (State s : unexplored) {
-            System.out.println("Children: " + s.toString());
-        }
-        
         
         SearchNode tmp = new SearchNode(state);
         Search search = new Search(state);
         SearchNode tmp2;
         int count = 0;
         while (count < 5) {
+            System.out.println("Next Children: ");
+            
             search.Expand(tmp, board);
             tmp = search.getBest();
+            search.movingCheckedNode(tmp);
             count ++;
-            
-            System.out.println("Hello!");
         }
         
     }

@@ -54,6 +54,9 @@ public class Search {
         State currentStateforNode; //extracting the node to expand (could have just called the method)
         currentStateforNode=nodeToExpand.getCurrent();
         
+        System.out.println("Parent: " + currentStateforNode.toString());
+        
+        
         childrenStates=currentStateforNode.produceChildren(board);
         for (State s : childrenStates) {
             System.out.println("Children: " + s.toString()); 
@@ -61,6 +64,9 @@ public class Search {
         for (State item : childrenStates) { //for each state expand to node and add to list
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
             childrenNodes.add(newChildNode);    
+        }
+        for (SearchNode n : childrenNodes) {
+            fringe.addToFringe(n);
         }
         return(childrenNodes);
     } 
