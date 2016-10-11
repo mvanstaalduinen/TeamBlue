@@ -1,18 +1,32 @@
-package TeamBlue;
+
 
 import java.util.ArrayList;
 
 public class FringeList {
     
-    private ArrayList<SearchNode> Fringe = new ArrayList<>();
+    private ArrayList<SearchNode> Fringe;
+    
+    public FringeList() {
+        Fringe = new ArrayList<>();
+    }
     
 /* Adds a searchNode to the Fringe list
     Input: a node
     Outputs: None
     */
-    public void addToFringe(State nodeToAdd) 
+    public void addToFringe(SearchNode nodeToAdd) 
     {
         Fringe.add(nodeToAdd);
+    }
+    
+    //outputs a reference to the ArrayList within Fringe.
+    public ArrayList<SearchNode> getEverything () {
+        return(Fringe);
+    }
+    
+    //gets the Node from the FringeList
+    public SearchNode getNode(int index) {
+        return(Fringe.get(index));    
     }
     
  /*Checks to see if the Fringe list is empty
