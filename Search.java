@@ -61,7 +61,7 @@ public class Search {
         currentStateforNode = nodeToExpand.getCurrent();
         
         System.out.println("Parent: " + currentStateforNode.toString());
-        
+
 
         childrenStates = currentStateforNode.produceChildren(board);
         for (State s : childrenStates) {
