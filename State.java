@@ -109,7 +109,6 @@ public class State {
         if (childIndex < 0) {
             childIndex = abs(childIndex);
         }
-        System.out.println("Second Index: " + childIndex);
         State result = new State();
         int tempFirstTop = state.get(firstIndex).getSmallDisk();
         int tempSecTop = state.get(childIndex).getSmallDisk();
@@ -153,7 +152,6 @@ public class State {
         }
         
         distance = board.getPosition(indexOfZero);
-        System.out.println("indexOfZero: " + indexOfZero + " distance: " + distance);
         
         if (indexOfZero + 1 >= state.size()) {
             result.add(changeState(indexOfZero, 0, 1));

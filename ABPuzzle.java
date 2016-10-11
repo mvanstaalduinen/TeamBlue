@@ -35,6 +35,19 @@ public class ABPuzzle {
             System.out.println("Children: " + s.toString());
         }
         
+        
+        SearchNode tmp = new SearchNode(state);
+        Search search = new Search(state);
+        SearchNode tmp2;
+        int count = 0;
+        while (count < 5) {
+            search.Expand(tmp, board);
+            tmp = search.getBest();
+            count ++;
+            
+            System.out.println("Hello!");
+        }
+        
     }
     
 }
