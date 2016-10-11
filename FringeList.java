@@ -29,6 +29,12 @@ public class FringeList {
         return(Fringe.get(index));    
     }
     
+    public SearchNode removeNode(SearchNode nodeToRemove) {
+        int index;
+        index=Fringe.indexOf(nodeToRemove);
+        return(Fringe.remove(index));
+    }
+    
  /*Checks to see if the Fringe list is empty
     Input: None
     Output Returns False if Fringe is empty
