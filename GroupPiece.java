@@ -1,4 +1,4 @@
-package abpuzzle;
+
 
 public class GroupPiece {
 
