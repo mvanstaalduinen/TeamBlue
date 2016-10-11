@@ -1,4 +1,4 @@
-package abpuzzle;
+
 
 public class Piece {
 
@@ -14,6 +14,11 @@ public class Piece {
     public int getSmallDisk()
     {
         return smallDisk;
+    }
+    
+    public void setSmallDisk(int sd)
+    {
+        smallDisk = sd;
     }
 
     public void setRightNeighbour(Piece right)
@@ -34,6 +39,14 @@ public class Piece {
     public int getLeftNeighbour()
     {
 	return leftNeighbour.getSmallDisk();
+    }
+    
+    public boolean isZero()
+    {
+        if (smallDisk == 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override
