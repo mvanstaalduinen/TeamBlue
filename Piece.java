@@ -30,6 +30,15 @@ public class Piece {
     {
 	leftNeighbour = left;    
     }
+    
+    public boolean checkRightNeighbour() 
+    {
+        if ( smallDisk == rightNeighbour.getSmallDisk()) {
+            return true;
+        }
+        else
+            return false;
+    }
 
     public int getRightNeighbout()
     {
@@ -47,6 +56,11 @@ public class Piece {
             return true;
         }
         return false;
+    }
+    
+    public boolean isEqual(Piece p) 
+    {
+        return smallDisk == p.getSmallDisk();
     }
 
     @Override

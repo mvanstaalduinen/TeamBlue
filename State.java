@@ -17,17 +17,19 @@ public class State {
     State(State source)
     {
         state = (ArrayList<Piece>) source.getState();
-        setNeighbours();
+        //setNeighbours();
+        totalFriends = setFriends();
         
     }
     
     State(ArrayList<Piece> source)
     {
         state = source;
-        setNeighbours();
+        //setNeighbours();
+        totalFriends = setFriends();
     }
     
-    private void setNeighbours() 
+    public void setNeighbours() 
     {
         for (Piece p : state) {
             int j = state.indexOf(p);
@@ -46,9 +48,30 @@ public class State {
         }
     }
     
-    private void setFriends()
+    public int setFriends()
     {
-        
+        int friends = 0;
+        for (int i = 0; i < state.size(); i++) {
+             
+            if ((i < (state.size() -1)) && (state.get(i).isEqual(state.get(i+1)))) {
+                friends = friends + 1;
+            }
+            if ((i > 0) && (state.get(i).isEqual(state.get(i-1)))) {
+                friends = friends + 1;
+            }
+            if ((i == 0) && (state.get(i).isEqual(state.get(state.size()-1)))) {
+                friends = friends + 1;
+            }
+            if ((i == (state.size() -1)) && (state.get(i).isEqual(state.get(0)))) {
+                friends = friends + 1;
+            } 
+        }
+        totalFriends = friends;
+        return friends;
+    }
+    
+    public int getFriends() {
+        return totalFriends;
     }
     
     public List<Piece> getState()
