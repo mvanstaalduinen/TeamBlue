@@ -62,7 +62,7 @@ public class Search {
         
         System.out.println("Parent: " + currentStateforNode.toString());
 
-
+        
         childrenStates = currentStateforNode.produceChildren(board);
         for (State s : childrenStates) {
             System.out.println("Children: " + s.toString()); 
@@ -71,9 +71,6 @@ public class Search {
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
             newChildNode.setGvalue(newChildNode.getGvalue()+1); //increase cost by 1 for children?? 
             childrenNodes.add(newChildNode);
-        }
-        for (SearchNode n : childrenNodes) {
-            fringe.addToFringe(n);
         }
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
