@@ -48,7 +48,7 @@ public class State {
         }
     }
     
-    public int setFriends()
+    public final int setFriends()
     {
         int friends = 0;
         for (int i = 0; i < state.size(); i++) {
