@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class FringeList {
     
-    private ArrayList<State> Fringe = new ArrayList<>();
+    private ArrayList<SearchNode> Fringe = new ArrayList<>();
     
-/* Adds a state to the Fringe list
-    Input: a state
+/* Adds a searchNode to the Fringe list
+    Input: a node
     Outputs: None
     */
-    public void addToFringe(State stateToAdd) 
+    public void addToFringe(State nodeToAdd) 
     {
-        Fringe.add(stateToAdd);
+        Fringe.add(nodeToAdd);
     }
     
  /*Checks to see if the Fringe list is empty

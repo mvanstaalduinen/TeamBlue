@@ -54,21 +54,3 @@ public class SearchNode {
         FevaluationOfState=Gvalue+HvalueForManhattanDistance;
     }
 }
-/* Moving to search class....
-    public void Make_Node(State current, SearchNode parent){
-    //  SearchNode newNode = new SearchNode;
-        currentState=current;
-        //parentState=parent;
-        if (parent==null)
-        {
-            Gvalue=0;
-        }
-        else 
-        {
-            //Gvalue=parent.getGvalue()+cost(P.State,S) Need to modify
-      
-        }
-        
-    }
-}
-*/
