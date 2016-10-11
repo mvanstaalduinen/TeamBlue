@@ -194,18 +194,14 @@ public class State {
             // moving to the right from 0
             if ((distance + indexOfZero) > state.size()) {
                 result.add(changeState(indexOfZero, abs((indexOfZero + distance) - state.size()), distance));
-                System.out.println("indexOfZero: if " + (indexOfZero + distance));
             } else {
                 result.add(changeState(indexOfZero, (indexOfZero + distance), distance));
-                System.out.println("indexOfZero: else" + indexOfZero + " distance: " + distance);
             }
             // moving to the left from 0
             if ((indexOfZero - distance) < 0) {
                 result.add(changeState(indexOfZero, ((distance - indexOfZero) - state.size()), distance));
-                System.out.println("indexOfZero - distance: if" + ((distance - indexOfZero) - state.size()));
             } else {
                 result.add(changeState(indexOfZero, abs(indexOfZero - distance), distance));
-                System.out.println("indexOfZero - distance: else" + (indexOfZero - distance));
             }
         }
         return result;

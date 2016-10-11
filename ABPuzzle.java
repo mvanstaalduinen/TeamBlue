@@ -17,13 +17,11 @@ public class ABPuzzle {
         
         state.setNeighbours();
         state.setFriends();
-        System.out.println("Check friends: " + state.getFriends());
                 
         Goal goal = new Goal(state);
         
         System.out.println(state.toString());
         System.out.println(board.toString());
-        System.out.println("Friends: " + state.getFriends());
         System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
         System.out.println();
         
@@ -34,7 +32,7 @@ public class ABPuzzle {
         unexplored = state.produceChildren(board);
 
         for (State s : unexplored) {
-            System.out.println(s.toString());
+            System.out.println("Children: " + s.toString());
         }
         
     }
