@@ -1,26 +1,31 @@
-package TeamBlue;
+
 import java.util.ArrayList;
 
 public class Search {
     Search(){
     }
-    public void Make_Node(State current, SearchNode parent){
-      SearchNode newNode = new SearchNode();
-        newNode.setCurrent(current);
-        //parentState=parent;
-        if (parent==null)
-        {
-            newNode.setGvalue(0);
-        }
-        else 
-        {
-            newNode.setGvalue(parent.getGvalue());//+cost(P.State,S)
-            newNode.setHvalueMD(current.setNeighbours()); //<---needs to grab the h value from the state maybe use a heuristics class to store information?
-            newNode.setFvalue();
-            newNode.setParent(parent);
-            newNode.setCurrent(current);
-        }
+    
+    public void startSearch(State initialState){
+        FringeList fringe = new FringeList();
+        ClosedList closed = new ClosedList();
+        SearchNode rootNode = new SearchNode(initialState);
+        fringe.addToFringe(rootNode);
+      
+      
+
     }
+    
+    public SearchNode getBest(FringeList fringe) {
+        ArrayList<SearchNode> listOfNodes = new ArrayList<>();
+        listOfNodes=fringe.getEverything();
+        for (SearchNode item : listOfNodes) {
+            //compare function
+        }
+        
+        /*********************for Testing**********/
+        return(fringe.getNode(0));
+    }
+    
     /* Needs some work
     public ArrayList<SearchNode> Expand(SearchNode nodeToExpand) {
         ArrayList<State> childrenStates = new ArrayList<>();
@@ -38,5 +43,6 @@ public class Search {
         }
         return(childrenNodes);
     }
-*/
+*/  
+    
 }
