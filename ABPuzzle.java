@@ -1,44 +1,37 @@
 package abpuzzle;
 
+import java.util.ArrayList;
+
 public class ABPuzzle {
 
     public static void main(String[] args) {
         
-        State state = new State();
-        Board board = new Board();
+        InputGetter ig = new InputGetter();
+        ArrayList<State> unexplored = new ArrayList<>();        
         
-        board.addToBoard(1);
-        board.addToBoard(2);
-        board.addToBoard(3);
-        board.addToBoard(4);
-        board.addToBoard(1);
-        board.addToBoard(3);
-        
-        Piece test = new Piece(1);
-        Piece test1 = new Piece(2);
-        Piece test2 = new Piece(0);
-        Piece test3 = new Piece(1);
-        Piece test4 = new Piece(3);
-        Piece test5 = new Piece(2);
-        
-        state.addToState(test);
-        state.addToState(test1);
-        state.addToState(test2);
-        state.addToState(test3);
-        state.addToState(test4);
-        state.addToState(test5);
+        int willBeFromConsole = ig.getFirstNumber();
+        System.out.println("firstNumber: " + willBeFromConsole);
+        Board board = ig.getBoard(willBeFromConsole);
+        System.out.println("board: " + board.toString());
+        State state = ig.getState(willBeFromConsole);
+                
+        Goal goal = new Goal(state);
         
         System.out.println(state.toString());
         System.out.println(board.toString());
-        
+        System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
         System.out.println();
         
+        System.out.println(goal.checkState(state));
+        
         System.out.println("State change!\n");
+
+        unexplored = state.produceChildren(board);
+
+        for (State s : unexplored) {
+            System.out.println(s.toString());
+        }
         
-        State changedState = state.changeState(2, 3);
-        
-        System.out.println(changedState.toString());
-        System.out.println(board.toString());
     }
     
 }
