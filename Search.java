@@ -20,6 +20,11 @@ public class Search {
         fringe.addToFringe(rootNode);
     }
     
+    /* Moves checked Node from Fring to Closed */
+    public void movingCheckedNode(SearchNode checkedNode){
+        closed.addToClosed(fringe.removeNode(checkedNode));
+    }
+    
     /* getBest:  Search.getBest(fringelist)
     Description: Gets the best Node based on the Heuristics
     >>>>>>>>>>>>>>>>>>>TESTING ONLY GRABS THE FIRST NODE<<<<<<<<<<<
