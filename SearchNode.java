@@ -1,4 +1,3 @@
-package TeamBlue;
 
 import java.util.ArrayList;
 
@@ -10,16 +9,20 @@ public class SearchNode {
     private int Gvalue; //Cost to reach the state
     private int FevaluationOfState; //Hvalue Man Distace+G value Parent
     
-    public SearchNode(){ //constructor method
-        currentState=null;
+    public SearchNode(State state){ //constructor method
+        currentState = state;
         parentState=null;
-        HvalueForManhattanDistance=0;
-        Gvalue=0;
+        HvalueForManhattanDistance = state.setFriends();
+        Gvalue = 0;
         FevaluationOfState= HvalueForManhattanDistance+Gvalue;
     }
 
-    public SearchNode(State newStateToCreateNode){ //override
-        currentState=newStateToCreateNode;
+    public SearchNode(State child, SearchNode parent){ //override
+        currentState = child;
+        parentState = parent.getCurrent();
+        HvalueForManhattanDistance = child.setFriends();
+        Gvalue = parent.getGvalue();
+        FevaluationOfState= HvalueForManhattanDistance+Gvalue;
     }
     //get Values Methods
     public int getHvalueMD () {
