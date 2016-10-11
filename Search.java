@@ -59,7 +59,7 @@ public class Search {
         ArrayList<SearchNode> childrenNodes = new ArrayList<>(); //node to return
         State currentStateforNode; //extracting the node to expand (could have just called the method)
         currentStateforNode = nodeToExpand.getCurrent();
-        
+
         System.out.println("Parent: " + currentStateforNode.toString());
 
         
@@ -71,9 +71,6 @@ public class Search {
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
             newChildNode.setGvalue(newChildNode.getGvalue()+1); //increase cost by 1 for children?? 
             childrenNodes.add(newChildNode);
-        }
-        for (SearchNode n : childrenNodes) {
-            fringe.addToFringe(n);
         }
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
