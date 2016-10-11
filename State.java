@@ -101,15 +101,18 @@ public class State {
         state.add(p);
     }
     
-    public State changeState(int firstIndex, int secondIndex, int distance)
+    public State changeState(int firstIndex, int childIndex, int distance)
     {   
-        if (secondIndex >= state.size() || secondIndex < 0) {
+        /*if (childIndex >= state.size() || secondIndex < 0) {
             secondIndex = (secondIndex % state.size());
+        }*/
+        if (childIndex < 0) {
+            childIndex = abs(childIndex);
         }
-        System.out.println("Second Index: " + secondIndex);
+        System.out.println("Second Index: " + childIndex);
         State result = new State();
         int tempFirstTop = state.get(firstIndex).getSmallDisk();
-        int tempSecTop = state.get(secondIndex).getSmallDisk();
+        int tempSecTop = state.get(childIndex).getSmallDisk();
         
         for (Piece p : state) {
             Piece temp = new Piece(p.getSmallDisk());
@@ -117,8 +120,11 @@ public class State {
         }
         
         result.getState().get(firstIndex).setSmallDisk(tempSecTop);
-        result.getState().get(secondIndex).setSmallDisk(tempFirstTop);
-                
+        result.getState().get(childIndex).setSmallDisk(tempFirstTop);
+        
+        int m = result.setFriends(); // int value placeholder can remove later
+        result.setNeighbours();
+        
         return result;
     }
     
@@ -185,9 +191,18 @@ public class State {
         result.add(changeState(indexOfZero, indexOfZero - 1, 1));
         
         if (distance > 1) {
-            System.out.println("Maybe? : " + (indexOfZero + distance) % state.size());
-            result.add(changeState(indexOfZero, indexOfZero + distance, distance));
-            result.add(changeState(indexOfZero, indexOfZero - distance, distance));
+            // moving to the right from 0
+            if ((distance + indexOfZero) > state.size()) {
+                result.add(changeState(indexOfZero, abs((indexOfZero + distance) - state.size()), distance));
+            } else {
+                result.add(changeState(indexOfZero, (indexOfZero + distance), distance));
+            }
+            // moving to the left from 0
+            if ((indexOfZero - distance) < 0) {
+                result.add(changeState(indexOfZero, ((distance - indexOfZero) - state.size()), distance));
+            } else {
+                result.add(changeState(indexOfZero, abs(indexOfZero - distance), distance));
+            }
         }
         return result;
     }
