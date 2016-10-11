@@ -128,38 +128,6 @@ public class State {
         return result;
     }
     
-    public boolean isLegal(State second, Board board)
-    {
-        int indexOfZero = -1;
-        int futureZero = -1;
-        int largeToken = -1;
-        for (Piece p : state) {
-            if(p.isZero()) {
-                indexOfZero = state.indexOf(p);
-                largeToken = board.getPosition(indexOfZero);
-            }
-        }
-        for (Piece p : second.getState()) {
-            if(p.isZero()) {
-                futureZero = second.getState().indexOf(p);
-            }
-        }
-        if ((largeToken != -1) && (futureZero != -1)) {
-            int dist = abs(indexOfZero-futureZero);
-            if (dist == 1) {
-                // all tokens can make a move of 1
-                return true;
-            }
-            if (largeToken == dist) {
-                return true;
-            }   
-        }
-        
-        return false;
-    }
-        
-    
-    
     public List<Piece> stateWithNoZero()
     {
         ArrayList<Piece> result = new ArrayList<>();
@@ -187,8 +155,16 @@ public class State {
         distance = board.getPosition(indexOfZero);
         System.out.println("indexOfZero: " + indexOfZero + " distance: " + distance);
         
-        result.add(changeState(indexOfZero, indexOfZero + 1, 1));
-        result.add(changeState(indexOfZero, indexOfZero - 1, 1));
+        if (indexOfZero + 1 >= state.size()) {
+            result.add(changeState(indexOfZero, 0, 1));
+        } else {
+            result.add(changeState(indexOfZero, indexOfZero + 1, 1));
+        }
+        if (indexOfZero - 1 < 0) {
+            result.add(changeState(indexOfZero, (state.size() - 1), 1));
+        } else {
+            result.add(changeState(indexOfZero, indexOfZero - 1, 1));
+        }
         
         if (distance > 1) {
             // moving to the right from 0
