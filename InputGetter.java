@@ -1,5 +1,8 @@
+package abpuzzle;
 
 
+
+import abpuzzle.State;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,26 +20,22 @@ public class InputGetter {
     public Board getBoard(int num)
     {
         Board b = new Board();
-        int tmp = reader.nextInt();
+        String tmp = reader.next();
         
-        while (tmp > 0) {
-            b.addToBoard(tmp % 10);
-            tmp /= 10;
+        for (int i = 0; i < tmp.length(); i++){
+            b.addToBoard(Character.getNumericValue(tmp.charAt(i)));
         }
-        b.reverseBoard();
         return b;
     }
     
     public State getState(int num)
     {
         State s = new State();
-        int tmp = reader.nextInt();
+        String tmp = reader.next();
         
-        while (tmp > 0) {
-            s.addToState(new Piece(tmp % 10));
-            tmp /= 10;
+        for (int i = 0; i < tmp.length(); i++) {
+            s.addToState(new Piece(Character.getNumericValue(tmp.charAt(i))));
         }
-        s.reverseState();
         return s;
     }
 }
