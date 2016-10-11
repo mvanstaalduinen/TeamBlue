@@ -5,44 +5,54 @@ public class Search {
     Search(){
     }
     
+    /*startSearch: Search.startSeach(initialstate);
+    Description: creates the fringes, closed list and starts the search
+    >>>>>>>>>>I Think this is not needed maybe<<<<<<<<<<<<<<<<<<
+    Input: The initialstate
+    Outputs: None
+    */
     public void startSearch(State initialState){
         FringeList fringe = new FringeList();
         ClosedList closed = new ClosedList();
         SearchNode rootNode = new SearchNode(initialState);
         fringe.addToFringe(rootNode);
-      
-      
-
     }
     
+    /* getBest:  Search.getBest(fringelist)
+    Description: Gets the best Node based on the Heuristics
+    >>>>>>>>>>>>>>>>>>>TESTING ONLY GRABS THE FIRST NODE<<<<<<<<<<<
+    Inputs: fringe: The fringe List
+    Outputs: the selected node based on the Heuristics
+    */
     public SearchNode getBest(FringeList fringe) {
         ArrayList<SearchNode> listOfNodes = new ArrayList<>();
         listOfNodes=fringe.getEverything();
         for (SearchNode item : listOfNodes) {
-            //compare function
+            //compare function to be added here
         }
         
         /*********************for Testing**********/
         return(fringe.getNode(0));
     }
     
-    /* Needs some work
-    public ArrayList<SearchNode> Expand(SearchNode nodeToExpand) {
-        ArrayList<State> childrenStates = new ArrayList<>();
-        ArrayList<SearchNode> childrenNodes = new ArrayList<>();
-        State currentStateforNode;
-        
+    
+    /*
+    Expand: method call: Search.Expand(Node, board)
+    Inputs: Node-> The node to expand, Board -> The overall board
+    Outputs: An arraylist of nodes expanded from the first node
+    */
+    public ArrayList<SearchNode> Expand(SearchNode nodeToExpand, Board board) {
+        ArrayList<State> childrenStates = new ArrayList<>(); //node for input
+        ArrayList<SearchNode> childrenNodes = new ArrayList<>(); //node to return
+        State currentStateforNode; //extracting the node to expand (could have just called the method)
         currentStateforNode=nodeToExpand.getCurrent();
-        // <----get Children from State.produceChildren
-        int childrenSize,x;
-        childrenSize= childrenStates.size();
-        for (x=0; x<childrenSize; x++)
-        {
-            childrenNodes.add(Make_Node(childrenStates.get(x), nodeToExpand.getCurrent())); //change .get
-            
+        
+        childrenStates=currentStateforNode.produceChildren(board);
+        for (State item : childrenStates) { //for each state expand to node and add to list
+            SearchNode newChildNode = new SearchNode(item , nodeToExpand);
+            childrenNodes.add(newChildNode);    
         }
         return(childrenNodes);
-    }
-*/  
+    } 
     
 }
