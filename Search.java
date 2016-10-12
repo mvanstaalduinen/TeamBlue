@@ -63,7 +63,7 @@ public class Search {
         System.out.println("Parent: " + currentStateforNode.toString());
         
         
-        childrenStates=currentStateforNode.produceChildren(board);
+        childrenStates = currentStateforNode.produceChildren(board);
         for (State s : childrenStates) {
             System.out.println("Children: " + s.toString()); 
         }
