@@ -33,13 +33,19 @@ public class Search {
     */
     public SearchNode getBest() {
         ArrayList<SearchNode> listOfNodes = new ArrayList<>();
-        listOfNodes=fringe.getEverything();
+        listOfNodes = fringe.getEverything();
+        int bestNodeIndex = 0;
+        int bestValue;
+        bestValue = listOfNodes.get(0).getFevaluation();
         for (SearchNode item : listOfNodes) {
-            //compare function to be added here
+            if (item.getFevaluation() > bestValue) { //heuristic here
+                bestNodeIndex = listOfNodes.indexOf(item);
+                bestValue=item.getFevaluation();
+            } 
         }
-        
+        return(fringe.getNode(bestNodeIndex));
         /*********************for Testing**********/
-        return(fringe.getNode(0));
+        //return(fringe.getNode(0));
     }
     
     
@@ -52,15 +58,17 @@ public class Search {
         ArrayList<State> childrenStates = new ArrayList<>(); //node for input
         ArrayList<SearchNode> childrenNodes = new ArrayList<>(); //node to return
         State currentStateforNode; //extracting the node to expand (could have just called the method)
-        currentStateforNode=nodeToExpand.getCurrent();
+        currentStateforNode = nodeToExpand.getCurrent();
         
-        childrenStates=currentStateforNode.produceChildren(board);
+        childrenStates = currentStateforNode.produceChildren(board);
         for (State s : childrenStates) {
             System.out.println("Children: " + s.toString()); 
         }
         for (State item : childrenStates) { //for each state expand to node and add to list
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
-            childrenNodes.add(newChildNode);    
+            newChildNode.setGvalue(newChildNode.getGvalue()+1); //increase cost by 1 for children?? 
+            childrenNodes.add(newChildNode);
+            
         }
         return(childrenNodes);
     } 
