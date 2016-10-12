@@ -86,14 +86,14 @@ public class State {
     @Override
     public String toString()
     {
-        return state.toString();
+        //return state.toString();
         
-        /*String result = "";
+        String result = "";
         
         for (Piece item : state) {
-            result += item.getSmallDisk();
+            result += item.getSmallDisk() + " ";
         }
-        return result;*/
+        return result;
     }
     
     public void addToState(Piece p)
