@@ -75,9 +75,6 @@ public class Search {
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
         }
-        for (SearchNode n : childrenNodes) {
-            fringe.addToFringe(n);
-        }
         return(childrenNodes);
     } 
     
