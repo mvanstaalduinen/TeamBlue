@@ -1,7 +1,7 @@
-
-
 import java.util.ArrayList;
 import java.util.Collections;
+import java.lang.Math;
+import java.util.Comparator;
 
 public class Goal {
     
@@ -10,14 +10,18 @@ public class Goal {
     Goal(State orig)
     {
         goalState = (ArrayList<Piece>) orig.getState();
-        Collections.sort(goalState, (Piece o1, Piece o2) -> o1.getSmallDisk() - (o2.getSmallDisk()));      
+        Collections.sort(goalState, new Comparator<Piece>(){
+		public int compare(Piece o1, Piece o2) {
+			return o1.getSmallDisk() - o2.getSmallDisk();
+		}
+		});
         goalState.remove(0);
     }
     
     @Override
     public String toString()
     {
-        return "I'll get to it if we need it.";
+        return goalState.toString();
     }
     
     public boolean checkState(State state)
