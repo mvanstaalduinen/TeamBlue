@@ -43,7 +43,9 @@ public class Search {
                 bestValue=item.getFevaluation();
             } 
         }
-        return(fringe.getNode(bestNodeIndex));
+        SearchNode test = fringe.getNode(bestNodeIndex);
+        fringe.removeNode(test);
+        return(test);
         /*********************for Testing**********/
         //return(fringe.getNode(0));
     }
@@ -82,7 +84,6 @@ public class Search {
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
         }
-        fringe.removeNode(nodeToExpand);
         closed.addToClosed(nodeToExpand); //add parent node to closed list
         return(childrenNodes);
     } 
