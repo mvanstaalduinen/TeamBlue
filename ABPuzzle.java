@@ -18,6 +18,7 @@ public class ABPuzzle {
         
         state.setNeighbours();
         state.setFriends();
+        
         SearchNode tmp = new SearchNode(state);
 	Goal goal = new Goal();
 	System.out.println("goals: " + goal.toString());
