@@ -19,14 +19,39 @@ public class ABPuzzle {
         state.setFriends();
                 
         
-        /*
-        Check if current state is goal
-            if it is then display that it is the goal and finish
-        If not then continue
+        if (goal.checkState(state)) {
+            System.out.println("The puzzle is solved.");
+            //exit()
+        }
         
-        Check if all large disks are 1 
-            if all large disks are 1 and the goal is not met then no solution
-        else continue
+        if (board.allOnes() && !goal.checkState(state)) {
+            System.out.println("There is no solution.");
+            //exit()
+        }
+        
+        SearchNode tmp = new SearchNode(state);
+        Search search = new Search(state);
+        ArrayList<SearchNode> path = new ArrayList<>();
+        
+        while (!goal.checkState(state)) {
+            // not stopping even when goal has been met?
+            System.out.println(state.toString());
+            search.Expand(tmp, board);
+            tmp = search.getBest();
+            
+            state = tmp.getCurrent();
+        }
+        
+        while (tmp.getParent() != null) {
+            path.add(tmp.getParent());
+            tmp = tmp.getParent();
+        }
+        
+        for (SearchNode n : path) {
+            System.out.println(n.getCurrent().toString());
+        }
+        
+        /*
         
         Create first Search object with parent state
         Create a temporary SearchNode
@@ -51,20 +76,6 @@ public class ABPuzzle {
         
         
         System.out.println("State change!\n");
-        
-        SearchNode tmp = new SearchNode(state);
-        Search search = new Search(state);
-        SearchNode tmp2;
-        int count = 0;
-        while (count < 5) {
-            System.out.println("Next Children: ");
-            
-            search.Expand(tmp, board);
-            tmp = search.getBest();
-            search.movingCheckedNode(tmp);
-            count ++;
-        }
-        
     }
     
 }

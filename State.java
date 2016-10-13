@@ -91,7 +91,7 @@ public class State {
         String result = "";
         
         for (Piece item : state) {
-            result += item.getSmallDisk() + " ";
+            result += item.getSmallDisk() + "  ";
         }
         return result;
     }

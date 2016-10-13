@@ -19,6 +19,16 @@ public class Board {
         board.add(value);
     }
     
+    public boolean allOnes() 
+    {
+        for (int i = 0; i < board.size(); i++) {
+            if (board.get(i) > 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     @Override
     public String toString()
     {
