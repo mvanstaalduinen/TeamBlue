@@ -18,14 +18,12 @@ public class ABPuzzle {
         state.setNeighbours();
         state.setFriends();
                 
-        Goal goal = new Goal(state);
         
         System.out.println(state.toString());
         System.out.println(board.toString());
         System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
         System.out.println();
         
-        System.out.println(goal.checkState(state));
         
         System.out.println("State change!\n");
         
