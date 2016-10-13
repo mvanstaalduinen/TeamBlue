@@ -18,12 +18,11 @@ public class ABPuzzle {
         state.setNeighbours();
         state.setFriends();
                 
-        Goal goal = new Goal(state);
         
-        if (goal.checkState(state)) {
-            System.out.println("The puzzle is solved.");
-            System.exit(0);
-        }
+        System.out.println(state.toString());
+        System.out.println(board.toString());
+        System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
+        System.out.println();
         
         if (board.allOnes() && !goal.checkState(state)) {
             System.out.println("There is no solution.");

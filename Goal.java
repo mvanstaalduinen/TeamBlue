@@ -7,9 +7,9 @@ public class Goal {
     
     private static ArrayList<Piece> goalState = new ArrayList<>();
     
-    Goal(State orig)
+    Goal(SearchNode orig)
     {
-        goalState = (ArrayList<Piece>) orig.getState();
+        goalState = (ArrayList<Piece>) orig.getCurrent().getState();
         Collections.sort(goalState, new Comparator<Piece>(){
 		public int compare(Piece o1, Piece o2) {
 			return o1.getSmallDisk() - o2.getSmallDisk();
@@ -24,8 +24,8 @@ public class Goal {
         return goalState.toString();
     }
     
-    public boolean checkState(State state)
+    public boolean checkState(SearchNode orig)
     {
-        return state.stateWithNoZero().equals(goalState);
+        return orig.getCurrent().stateWithNoZero().equals(goalState);
     }
 }
