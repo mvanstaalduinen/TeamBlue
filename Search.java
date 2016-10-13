@@ -9,7 +9,7 @@ public class Search {
     
     /*startSearch: Search.startSeach(initialstate);
     Description: creates the fringes, closed list and starts the search
-    >>>>>>>>>>I Think this is not needed maybe<<<<<<<<<<<<<<<<<<
+    >>>>>>>>>>I Think this is not needed maybe<<<<<<<<<<<<<<<<<< 
     Input: The initialstate
     Outputs: None
     */
@@ -48,6 +48,19 @@ public class Search {
         //return(fringe.getNode(0));
     }
     
+    public boolean isInClosed(SearchNode checkNode)
+    {
+        return closed.checkClosed(checkNode);
+    }
+    
+    public ArrayList<SearchNode> tracePath(SearchNode goalNode) 
+    {
+        //Trace the path of the goal back to root so that the complete path can be printed
+        // needs to be reversed
+        // Tracing the path is looking at all the parent nodes.
+        ArrayList<SearchNode> childrenNodes = new ArrayList<>();
+        return childrenNodes;
+    }
     
     /*
     Expand: method call: Search.Expand(Node, board)
@@ -60,13 +73,7 @@ public class Search {
         State currentStateforNode; //extracting the node to expand (could have just called the method)
         currentStateforNode = nodeToExpand.getCurrent();
 
-        System.out.println("Parent: " + currentStateforNode.toString());
-
-        
         childrenStates = currentStateforNode.produceChildren(board);
-        for (State s : childrenStates) {
-            System.out.println("Children: " + s.toString()); 
-        }
         for (State item : childrenStates) { //for each state expand to node and add to list
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
             newChildNode.setGvalue(newChildNode.getGvalue()+1); //increase cost by 1 for children?? 
@@ -75,6 +82,8 @@ public class Search {
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
         }
+        fringe.removeNode(nodeToExpand);
+        closed.addToClosed(nodeToExpand); //add parent node to closed list
         return(childrenNodes);
     } 
     
