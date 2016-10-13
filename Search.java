@@ -84,10 +84,6 @@ public class Search {
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
         }
-<<<<<<< 4329bf686b5d67e71274c669c02d17085fdc3ae8
-=======
-        fringe.removeNode(nodeToExpand);
->>>>>>> Comment pseudo code for ABPuzzle
         closed.addToClosed(nodeToExpand); //add parent node to closed list
         return(childrenNodes);
     } 
