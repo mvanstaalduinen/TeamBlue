@@ -22,12 +22,12 @@ public class ABPuzzle {
         
         if (goal.checkState(state)) {
             System.out.println("The puzzle is solved.");
-            //exit()
+            System.exit(0);
         }
         
         if (board.allOnes() && !goal.checkState(state)) {
             System.out.println("There is no solution.");
-            //exit()
+            System.exit(0);
         }
         
         SearchNode tmp = new SearchNode(state);
