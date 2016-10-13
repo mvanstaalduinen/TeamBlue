@@ -19,6 +19,31 @@ public class ABPuzzle {
         state.setFriends();
                 
         
+        /*
+        Check if current state is goal
+            if it is then display that it is the goal and finish
+        If not then continue
+        
+        Check if all large disks are 1 
+            if all large disks are 1 and the goal is not met then no solution
+        else continue
+        
+        Create first Search object with parent state
+        Create a temporary SearchNode
+        Create a list of SearchNodes that will hold the optimal path
+        
+        Until Optimal path is found
+            Expand the search object
+            get the best Node to continue
+            Check if that node is Goal
+                if it is check if the solution is optimal
+            Move the parent node to the list of Checked Nodes (done in Expand method)
+            Best Node to continue is then used to Expand Search object.
+        
+        Once Optimal solution found 
+            display all children state in standard out to get to the goal state
+        */
+        
         System.out.println(state.toString());
         System.out.println(board.toString());
         System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
