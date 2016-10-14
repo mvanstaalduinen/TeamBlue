@@ -19,7 +19,7 @@ public class Goal {
 		});
         tmp.remove(0);
 	goalStates.add(new State(tmp));
-	for (int i = 1; i <= Math.sqrt(tmp.size()); i++) {
+	for (int i = 1; i <= tmp.size(); i++) {
 		ArrayList<Piece> result = cloneList(tmp);
 		Collections.rotate(result, i*-1);
 		goalStates.add(new State(result));
