@@ -35,6 +35,11 @@ public class FringeList {
         return(Fringe.remove(index));
     }
     
+    public boolean checkNode(SearchNode nodeToCheck)
+    {
+        return(Fringe.contains(nodeToCheck));
+    }
+    
  /*Checks to see if the Fringe list is empty
     Input: None
     Output Returns False if Fringe is empty
@@ -50,4 +55,18 @@ public class FringeList {
         }
         return(true);
     }
+    
+    @Override
+    public String toString()
+    {
+        //return state.toString();
+        
+        String stringOutput = "";
+        
+        for (SearchNode fringeItem : Fringe  ) {
+            stringOutput += fringeItem.getCurrent() + "\n";
+        }
+        return stringOutput;
+    }
+    
 }
