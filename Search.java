@@ -91,10 +91,8 @@ public class Search {
             newChildNode.setGvalue(newChildNode.getGvalue()+1); //increase cost by 1 for children?? 
             childrenNodes.add(newChildNode);
         }
-        for (SearchNode itemToAdd : childrenNodes) {
-            if (closed.checkNode(itemToAdd) == false ) {
-                fringe.addToFringe(itemToAdd);
-            }
+        for (SearchNode n : childrenNodes) {
+            fringe.addToFringe(n);
         }
         closed.addToFringe(nodeToExpand); //add parent node to closed list
         return(childrenNodes);
