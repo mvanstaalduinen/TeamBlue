@@ -59,18 +59,19 @@ public class Search {
     }
     
     //adds the tracepath once a goal has been made. 
-    public void tracePath(SearchNode goalNode) 
+    public FringeList tracePath(SearchNode goalNode) 
     {
         //Trace the path of the goal back to root so that the complete path can be printed
         // needs to be reversed
         // Tracing the path is looking at all the parent nodes.
         SearchNode nodeForInspection; 
         nodeForInspection = goalNode;
-        while (nodeForInspection.getCurrent().equals(rootNode.getCurrent())==false)
+        while (nodeForInspection.getCurrent().equals(rootNode.getCurrent()) == false)
         {
             traced.addToFringe(nodeForInspection);
-            nodeForInspection=nodeForInspection.getParent();
+            nodeForInspection = nodeForInspection.getParent();
         }
+        return(traced);
     }
     
     /*
