@@ -74,7 +74,7 @@ public class State {
         return totalFriends;
     }
     
-    public List<Piece> getState()
+    public ArrayList<Piece> getState()
     {
         ArrayList<Piece> result = new ArrayList<>();
         for (int i = 0; i < state.size(); i++){
@@ -127,7 +127,7 @@ public class State {
         return result;
     }
     
-    public List<Piece> stateWithNoZero()
+    public State stateWithNoZero()
     {
         ArrayList<Piece> result = new ArrayList<>();
         
@@ -136,7 +136,7 @@ public class State {
                 result.add(p);
             }
         }
-        return result;
+        return new State(result);
     }
     
     public ArrayList<State> produceChildren(Board board)
@@ -180,6 +180,23 @@ public class State {
         }
         return result;
     }
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o == null) {
+			return false;
+		}
+
+		final State other = (State) o;
+		System.out.println("first: " + state + " other: " + other);
+		for (int i = 0; i < state.size(); i++) {
+			if (state.get(i).getSmallDisk() != other.getState().get(i).getSmallDisk()) {
+				return false;
+			}
+		}
+		return true;
+	}
     
     public void reverseState()
     {
