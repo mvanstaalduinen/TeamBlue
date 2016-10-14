@@ -39,7 +39,20 @@ public class Piece {
             if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk())) {
                 return true;
             }
-         } else if ((smallDisk == leftNeighbour.getSmallDisk()) && (0 == rightNeighbour.getSmallDisk())) {
+         } else if (0 == leftNeighbour.getSmallDisk()) {
+             if (leftNeighbour.getLeftNeighbour() < smallDisk) {
+                 return true;
+             } else {
+                 return false;
+             }
+              
+         } else if (0 == rightNeighbour.getSmallDisk()) {
+             if ((rightNeighbour.getRightNeighbour() > smallDisk) || (rightNeighbour.getRightNeighbour() == 1)) {
+                 return true;
+             }       
+             else {
+                return false; }
+         } else if (1 == rightNeighbour.getSmallDisk()) {
              return true;
          }
             return false;
