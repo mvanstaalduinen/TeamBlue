@@ -36,7 +36,10 @@ public class Piece {
         if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
         } else if ((smallDisk == 0)) {
-            if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk())) {
+	    if (rightNeighbour.getSmallDisk() == leftNeighbour.getSmallDisk()) {
+	        return false;
+	    }
+            else if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk())) {
                 return true;
             }
          } else if (0 == leftNeighbour.getSmallDisk()) {
