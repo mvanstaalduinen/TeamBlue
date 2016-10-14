@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 
 public class FringeList {
@@ -31,7 +29,7 @@ public class FringeList {
     
     public SearchNode removeNode(SearchNode nodeToRemove) {
         int index;
-        index=Fringe.indexOf(nodeToRemove);
+        index = Fringe.indexOf(nodeToRemove);
         return(Fringe.remove(index));
     }
     
@@ -47,9 +45,9 @@ public class FringeList {
     */
     public boolean isNotEmpty()
     {
-        int fringeSize=0;
-        fringeSize=Fringe.size();
-        if (fringeSize==0)
+        int fringeSize = 0;
+        fringeSize = Fringe.size();
+        if (fringeSize == 0)
         {
             return(false);
         }
@@ -62,7 +60,6 @@ public class FringeList {
         //return state.toString();
         
         String stringOutput = "";
-        
         for (SearchNode fringeItem : Fringe  ) {
             stringOutput += fringeItem.getCurrent() + "\n";
         }
