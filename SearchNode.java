@@ -56,4 +56,11 @@ public class SearchNode {
     public void setFvalue () {
         FevaluationOfState=Gvalue+HvalueForManhattanDistance;
     }
+    
+    @Override
+    public String toString()
+    {
+        //return state.toString();
+        return (currentState.toString());
+    }
 }
