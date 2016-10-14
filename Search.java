@@ -4,7 +4,9 @@ import java.util.ArrayList;
 public class Search {
     
     private FringeList fringe;
-    private ClosedList closed;
+    private FringeList closed;
+    private FringeList traced;
+    private SearchNode rootNode;
     
     
     /*startSearch: Search.startSeach(initialstate);
@@ -15,14 +17,15 @@ public class Search {
     */
     public Search(State initialState){
         fringe = new FringeList();
-        closed = new ClosedList();
+        closed = new FringeList();
+        traced = new FringeList();
         SearchNode rootNode = new SearchNode(initialState);
         fringe.addToFringe(rootNode);
     }
     
     /* Moves checked Node from Fring to Closed */
     public void movingCheckedNode(SearchNode checkedNode){
-        closed.addToClosed(fringe.removeNode(checkedNode));
+        closed.addToFringe(fringe.removeNode(checkedNode));
     }
     
     /* getBest:  Search.getBest(fringelist)
@@ -52,16 +55,22 @@ public class Search {
     
     public boolean isInClosed(SearchNode checkNode)
     {
-        return closed.checkClosed(checkNode);
+        return closed.checkNode(checkNode);
     }
     
-    public ArrayList<SearchNode> tracePath(SearchNode goalNode) 
+    //adds the tracepath once a goal has been made. 
+    public void tracePath(SearchNode goalNode) 
     {
         //Trace the path of the goal back to root so that the complete path can be printed
         // needs to be reversed
         // Tracing the path is looking at all the parent nodes.
-        ArrayList<SearchNode> childrenNodes = new ArrayList<>();
-        return childrenNodes;
+        SearchNode nodeForInspection; 
+        nodeForInspection = goalNode;
+        while (nodeForInspection.getCurrent().equals(rootNode.getCurrent())==false)
+        {
+            traced.addToFringe(nodeForInspection);
+            nodeForInspection=nodeForInspection.getParent();
+        }
     }
     
     /*
@@ -84,7 +93,7 @@ public class Search {
         for (SearchNode n : childrenNodes) {
             fringe.addToFringe(n);
         }
-        closed.addToClosed(nodeToExpand); //add parent node to closed list
+        closed.addToFringe(nodeToExpand); //add parent node to closed list
         return(childrenNodes);
     } 
     
