@@ -166,7 +166,7 @@ public class State {
         
         if (distance > 1) {
             // moving to the right from 0
-            if ((distance + indexOfZero) > state.size()) {
+            if ((distance + indexOfZero) >= state.size()) {
                 result.add(changeState(indexOfZero, abs((indexOfZero + distance) - state.size()), distance));
             } else {
                 result.add(changeState(indexOfZero, (indexOfZero + distance), distance));

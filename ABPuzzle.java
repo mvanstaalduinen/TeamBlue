@@ -9,8 +9,8 @@ public class ABPuzzle {
         InputGetter ig = new InputGetter();
         ArrayList<State> unexplored = new ArrayList<>();        
         
-        int willBeFromConsole = Integer.valueOf(args[0]);
-       	//int willBeFromConsole = ig.getFirstNumber();
+        //int willBeFromConsole = Integer.valueOf(args[0]);
+       	int willBeFromConsole = ig.getFirstNumber();
         System.out.println("firstNumber: " + willBeFromConsole);
         Board board = ig.getBoard(willBeFromConsole);
        	System.out.println("board: " + board.toString());
@@ -43,7 +43,7 @@ public class ABPuzzle {
             search.Expand(tmp, board);
             tmp = search.getBest();
             
-            //state = tmp.getCurrent();
+            state = tmp.getCurrent();
         }
         
         while (tmp.getParent() != null) {
