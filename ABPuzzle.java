@@ -10,36 +10,38 @@ public class ABPuzzle {
         ArrayList<State> unexplored = new ArrayList<>();        
         
         int willBeFromConsole = Integer.valueOf(args[0]);
-        System.out.println("firstNumber: " + willBeFromConsole);
+       	System.out.println("firstNumber: " + willBeFromConsole);
         Board board = ig.getBoard(willBeFromConsole);
-        System.out.println("board: " + board.toString());
+       	System.out.println("board: " + board.toString());
         State state = ig.getState(willBeFromConsole);
         
         state.setNeighbours();
         state.setFriends();
-                
+        SearchNode tmp = new SearchNode(state);
+	Goal goal = new Goal(tmp);
+	System.out.println("goals: " + goal.toString());
+	System.out.println(goal.checkState(tmp));
         
-        if (goal.checkState(state)) {
+       if (goal.checkState(tmp)) {
             System.out.println("The puzzle is solved.");
             //exit()
         }
         
-        if (board.allOnes() && !goal.checkState(state)) {
+        if (board.allOnes() && !goal.checkState(tmp)) {
             System.out.println("There is no solution.");
             //exit()
         }
         
-        SearchNode tmp = new SearchNode(state);
         Search search = new Search(state);
         ArrayList<SearchNode> path = new ArrayList<>();
         
-        while (!goal.checkState(state)) {
+        while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             System.out.println(state.toString());
             search.Expand(tmp, board);
             tmp = search.getBest();
             
-            state = tmp.getCurrent();
+            //state = tmp.getCurrent();
         }
         
         while (tmp.getParent() != null) {
@@ -73,9 +75,7 @@ public class ABPuzzle {
         System.out.println(board.toString());
         System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
         System.out.println();
-        
-        System.out.println(goal.checkState(state));
-        
+
         System.out.println("State change!\n");
     }
     
