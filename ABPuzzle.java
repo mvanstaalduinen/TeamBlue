@@ -38,7 +38,8 @@ public class ABPuzzle {
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             search.Expand(tmp, board);
-           // System.out.println("Fringe:" + search.testGetList("fringe").toString());
+            System.out.println("Fringe:\n" + search.testGetList("fringe").toString());
+            System.out.println("Closed:\n" + search.testGetList("closed").toString());
             tmp = search.getBest();
             
             state = tmp.getCurrent();

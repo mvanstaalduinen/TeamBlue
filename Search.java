@@ -21,7 +21,7 @@ public class Search {
         closed = new NodeList();
         traced = new NodeList();
         SearchNode rootNode = new SearchNode(initialState);
-        fringe.addToNode(rootNode);
+        //fringe.addToNode(rootNode);
     }
     
     /* Moves checked Node from Fring to Closed */
@@ -99,7 +99,8 @@ public class Search {
                 fringe.addToNode(itemToAdd);
             }
         }
-        closed.addToNode(nodeToExpand); //add parent node to closed list
+        closed.addToNode(nodeToExpand);
+        //movingCheckedNode(nodeToExpand); //add parent node to closed list
         return(childrenNodes); 
     }
     
