@@ -94,6 +94,7 @@ public class Search {
         for (SearchNode itemToAdd : childrenNodes) {
             if (closed.checkNode(itemToAdd) == false ) {
                 System.out.println("Child " + itemToAdd.toString());
+                fringe.addToNode(itemToAdd);
             }
         }
         closed.addToNode(nodeToExpand); //add parent node to closed list

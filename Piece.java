@@ -55,7 +55,7 @@ public class Piece {
              }       
              else {
                 return false; }
-         } else if (1 == rightNeighbour.getSmallDisk()) {
+         } else if ((smallDisk == n) && (1 == rightNeighbour.getSmallDisk())) {
              return true;
          }
             return false;
