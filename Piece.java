@@ -66,8 +66,6 @@ public class Piece {
           else if ((smallDisk == n) && (1 == rightNeighbour.getSmallDisk())) {
              return true;
          }
-        System.out.println("Checking value: " + smallDisk);
-        System.out.println();
             return false;
     }
     
