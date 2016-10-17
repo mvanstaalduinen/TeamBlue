@@ -8,7 +8,7 @@ import java.util.List;
 public class State {
     
     private ArrayList<Piece> state = new ArrayList<>();
-    private int totalFriends;
+    private double totalFriends;
     private double finalFriends;
     
     State()
@@ -80,7 +80,7 @@ public class State {
     }
     
     
-    public int getFriends() {
+    public double getFriends() {
         return totalFriends;
     }
     

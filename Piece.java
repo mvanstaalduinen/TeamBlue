@@ -56,11 +56,10 @@ public class Piece {
              }
               
          } else if (0 == rightNeighbour.getSmallDisk()) {
-             if (((rightNeighbour.getRightNeighbour() == 1) && (smallDisk == n)) || (rightNeighbour.getRightNeighbour() > smallDisk) ) {
-             if ((rightNeighbour.getRightNeighbour() > smallDisk) || ((rightNeighbour.getRightNeighbour() == 1) && (smallDisk == n))) {
+             if ((rightNeighbour.getRightNeighbour() > smallDisk) ) {
+
                  return true;
-             }  
-             }     
+             }       
              else {
                 return false; }
          } 

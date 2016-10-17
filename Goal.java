@@ -11,11 +11,14 @@ public class Goal {
 	double d = (orig.getCurrent().getState().size())-1;
 	d = Math.sqrt(d);
 	int n = (int) d;
-	for (Piece p : orig.getCurrent().getState()) {
+            for (Piece p : orig.getCurrent().getState()) {
 		if (!p.checkSorted(n)) {
                     return false;
 		}
-	}
+            }
+        if ((orig.getCurrent().getFriends()) != (orig.getCurrent().getFinalTotal())) { 
+            return false;
+        }
 	return true;
     }
 }
