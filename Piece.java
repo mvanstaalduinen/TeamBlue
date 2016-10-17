@@ -31,7 +31,7 @@ public class Piece {
     
     public boolean checkSorted(int n) 
     {
-        if ((smallDisk == 1) && (smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk()) ) {
+        if ((smallDisk == 1) && (smallDisk <= rightNeighbour.getSmallDisk()) && ((smallDisk == leftNeighbour.getSmallDisk())  || (n == leftNeighbour.getSmallDisk()) )) {
             return true;
         } else if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
