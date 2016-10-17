@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Search {
     
@@ -71,6 +72,7 @@ public class Search {
             traced.addToNode(nodeForInspection);
             nodeForInspection = nodeForInspection.getParent();
         }
+        Collections.reverse(traced);
         return(traced);
     }
     
