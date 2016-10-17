@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Search {
     
-    private FringeList fringe;
-    private FringeList closed;
-    private FringeList traced;
+    private NodeList fringe ;
+    private NodeList closed;
+    private NodeList traced;
     private SearchNode rootNode;
     
     
@@ -16,19 +16,19 @@ public class Search {
     Outputs: None
     */
     public Search(State initialState){
-        fringe = new FringeList();
-        closed = new FringeList();
-        traced = new FringeList();
+        fringe = new NodeList();
+        closed = new NodeList();
+        traced = new NodeList();
         SearchNode rootNode = new SearchNode(initialState);
-        fringe.addToFringe(rootNode);
+        fringe.addToNode(rootNode);
     }
     
     /* Moves checked Node from Fring to Closed */
     public void movingCheckedNode(SearchNode checkedNode){
-        closed.addToFringe(fringe.removeNode(checkedNode));
+        closed.addToNode(fringe.removeNode(checkedNode));
     }
     
-    /* getBest:  Search.getBest(fringelist)
+    /* getBest:  Search.getBest(Nodelist)
     Description: Gets the best Node based on the Heuristics
     >>>>>>>>>>>>>>>>>>>TESTING ONLY GRABS THE FIRST NODE<<<<<<<<<<<
     Inputs: fringe: The fringe List
@@ -50,7 +50,7 @@ public class Search {
         fringe.removeNode(test);
         return(test);
         /*********************for Testing**********/
-        //return(fringe.getNode(0));
+        //return(Node.getNode(0));
     }
     
     public boolean isInClosed(SearchNode checkNode)
@@ -59,7 +59,7 @@ public class Search {
     }
     
     //adds the tracepath once a goal has been made. 
-    public FringeList tracePath(SearchNode goalNode) 
+    public NodeList tracePath(SearchNode goalNode) 
     {
         //Trace the path of the goal back to root so that the complete path can be printed
         // needs to be reversed
@@ -68,7 +68,7 @@ public class Search {
         nodeForInspection = goalNode;
         while (nodeForInspection.getCurrent().equals(rootNode.getCurrent()) == false)
         {
-            traced.addToFringe(nodeForInspection);
+            traced.addToNode(nodeForInspection);
             nodeForInspection = nodeForInspection.getParent();
         }
         return(traced);
@@ -93,10 +93,10 @@ public class Search {
         }
         for (SearchNode itemToAdd : childrenNodes) {
             if (closed.checkNode(itemToAdd) == false ) {
-                fringe.addToFringe(itemToAdd);
+                fringe.addToNode(itemToAdd);
             }
         }
-        closed.addToFringe(nodeToExpand); //add parent node to closed list
+        closed.addToNode(nodeToExpand); //add parent node to closed list
         return(childrenNodes);
     } 
     
