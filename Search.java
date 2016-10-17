@@ -97,7 +97,17 @@ public class Search {
             }
         }
         closed.addToNode(nodeToExpand); //add parent node to closed list
-        return(childrenNodes);
-    } 
+        return(childrenNodes); 
+    }
     
+    //test GetList 
+    public NodeList testGetList(String choice) 
+    {
+        switch (choice) {
+            case "fringe" : return(fringe);
+            case "closed" : return(closed);
+            case "traced" : return(traced);
+            default: return (null);
+        }
+    }
 }

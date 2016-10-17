@@ -18,8 +18,8 @@ public class ABPuzzle {
         state.setFriends();
         SearchNode tmp = new SearchNode(state);
 	Goal goal = new Goal();
-	System.out.println("goals: " + goal.toString());
-	System.out.println(goal.checkState(tmp));
+	System.out.println("goals: " + goal.toString()); //remove
+	System.out.println(goal.checkState(tmp)); //remove
         
        if (goal.checkState(tmp)) {
             System.out.println("The puzzle is solved.");
@@ -36,8 +36,9 @@ public class ABPuzzle {
         
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
-            System.out.println(state.toString());
+            //System.out.println(state.toString());
             search.Expand(tmp, board);
+            System.out.println("Fringe:" + search.testGetList("fringe").toString());
             tmp = search.getBest();
             
             //state = tmp.getCurrent();
