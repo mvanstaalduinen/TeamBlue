@@ -39,7 +39,7 @@ public class ABPuzzle {
             // not stopping even when goal has been met?
             System.out.println("a state " +state.toString());
             search.Expand(tmp, board);
-            System.out.println("Fringe:" + search.testGetList("fringe").toString());
+           // System.out.println("Fringe:" + search.testGetList("fringe").toString());
             tmp = search.getBest();
             
             state = tmp.getCurrent();
@@ -74,10 +74,7 @@ public class ABPuzzle {
         
         System.out.println(state.toString());
         System.out.println(board.toString());
-        System.out.println("Here is the state with no 0: " + state.stateWithNoZero());
-        System.out.println();
         
-        System.out.println("State change!\n");
     }
     
 }
