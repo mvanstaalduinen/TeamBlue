@@ -31,7 +31,7 @@ public class Piece {
 	leftNeighbour = left;    
     }
     
-    public boolean checkSorted() 
+    public boolean checkSorted(int n) 
     {
         if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
@@ -50,7 +50,7 @@ public class Piece {
              }
               
          } else if (0 == rightNeighbour.getSmallDisk()) {
-             if ((rightNeighbour.getRightNeighbour() > smallDisk) || (rightNeighbour.getRightNeighbour() == 1)) {
+             if ((rightNeighbour.getRightNeighbour() > smallDisk) || (rightNeighbour.getRightNeighbour() == 1 && smallDisk == n)) {
                  return true;
              }       
              else {
