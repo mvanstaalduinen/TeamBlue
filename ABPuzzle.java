@@ -4,8 +4,7 @@ public class ABPuzzle {
 
     public static void main(String[] args) {
         
-        InputGetter ig = new InputGetter();
-        ArrayList<State> unexplored = new ArrayList<>();        
+        InputGetter ig = new InputGetter();       
         
         //int willBeFromConsole = Integer.valueOf(args[0]);
        	int willBeFromConsole = ig.getFirstNumber();
@@ -39,9 +38,10 @@ public class ABPuzzle {
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             search.Expand(tmp, board);
-           // System.out.println("Fringe:\n" + search.testGetList("fringe").toString());
-           // System.out.println("Closed:\n" + search.testGetList("closed").toString());
-           // System.out.println("------------------------");
+
+            System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
+            System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
+            System.out.println("------------------------");
             tmp = search.getBest();
             
             state = tmp.getCurrent();

@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class NodeList {
     
     private ArrayList<SearchNode> Node;
+    int size;
     
     public NodeList() {
         Node = new ArrayList<>();
+        size = 0;
     }
     
 /* Adds a searchNode to the Node list
@@ -15,6 +17,7 @@ public class NodeList {
     public void addToNode(SearchNode nodeToAdd) 
     {
         Node.add(nodeToAdd);
+        //size+=1;
     }
     
     //outputs a reference to the ArrayList within Node.
@@ -33,7 +36,12 @@ public class NodeList {
         if (index!=-1) {
             return(Node.remove(index));
         }
+        //size-=1;
         return(null);
+    }
+    
+    public int getSize() {
+        return(Node.size());
     }
     
     public boolean checkNode(SearchNode nodeToCheck)
