@@ -40,6 +40,7 @@ public class ABPuzzle {
             search.Expand(tmp, board);
             System.out.println("Fringe:\n" + search.testGetList("fringe").toString());
             System.out.println("Closed:\n" + search.testGetList("closed").toString());
+            System.out.println("------------------------");
             tmp = search.getBest();
             
             state = tmp.getCurrent();
