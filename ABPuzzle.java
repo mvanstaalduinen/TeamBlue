@@ -34,49 +34,23 @@ public class ABPuzzle {
         }
         
         Search search = new Search(state);
-        ArrayList<SearchNode> path = new ArrayList<>();
+        Object object = new Object();
+        int count = 0;
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             search.Expand(tmp, board);
-            System.out.println("Fringe:\n" + search.testGetList("fringe").toString());
-            System.out.println("Closed:\n" + search.testGetList("closed").toString());
-            System.out.println("------------------------");
+           // System.out.println("Fringe:\n" + search.testGetList("fringe").toString());
+           // System.out.println("Closed:\n" + search.testGetList("closed").toString());
+           // System.out.println("------------------------");
             tmp = search.getBest();
             
             state = tmp.getCurrent();
         }
-        
+            
+        System.out.println("Solution is:");
         search.printTracePath(tmp);
-    /*    while (tmp.getParent() != null) {
-            path.add(tmp.getParent());
-            tmp = tmp.getParent();
-        }
-        
-        for (SearchNode n : path) {
-            System.out.println(n.getCurrent().toString());
-        }
-        
-        /*
-        
-        Create first Search object with parent state
-        Create a temporary SearchNode
-        Create a list of SearchNodes that will hold the optimal path
-        
-        Until Optimal path is found
-            Expand the search object
-            get the best Node to continue
-            Check if that node is Goal
-                if it is check if the solution is optimal
-            Move the parent node to the list of Checked Nodes (done in Expand method)
-            Best Node to continue is then used to Expand Search object.
-        
-        Once Optimal solution found 
-            display all children state in standard out to get to the goal state
-        */
-        
-        System.out.println(state.toString());
-        System.out.println(board.toString());
-        
     }
-    
 }
+
+    
+

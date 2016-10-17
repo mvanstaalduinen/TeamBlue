@@ -42,25 +42,19 @@ public class Piece {
             else if ((smallDisk < rightNeighbour.getSmallDisk()) && (smallDisk < leftNeighbour.getSmallDisk())) {
                 return true;
             } return false;
+            
          } else if (0 == leftNeighbour.getSmallDisk()) {
              if (leftNeighbour.getLeftNeighbour() < smallDisk) {
-             }
-            else if ((smallDisk <= (rightNeighbour.getSmallDisk())) && ((smallDisk <= leftNeighbour.getSmallDisk()))) {
+                 return true;
+             } else if (leftNeighbour.getLeftNeighbour() == n) {
                 return true;
             }
-         } else if (0 == (leftNeighbour.getSmallDisk())) {
-             if ((leftNeighbour.getLeftNeighbour()) < smallDisk) {
-                 return true;
-             } else {
-                 return false;
-             }
-              
          } else if (0 == rightNeighbour.getSmallDisk()) {
-             if ((rightNeighbour.getRightNeighbour() > smallDisk) ) {
-
+            if ((rightNeighbour.getRightNeighbour() > smallDisk) ) {
                  return true;
-             }       
-             else {
+            } else if ((smallDisk == n) && (rightNeighbour.getRightNeighbour() == 1)) {
+                return true;
+         }  else {
                 return false; }
          } 
           else if ((smallDisk == n) && (1 == rightNeighbour.getSmallDisk())) {
