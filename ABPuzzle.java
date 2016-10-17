@@ -34,7 +34,6 @@ public class ABPuzzle {
         
         Search search = new Search(state);
         ArrayList<SearchNode> path = new ArrayList<>();
-        
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             System.out.println("a state " +state.toString());
@@ -45,7 +44,8 @@ public class ABPuzzle {
             state = tmp.getCurrent();
         }
         
-        while (tmp.getParent() != null) {
+        search.printTracePath(tmp);
+    /*    while (tmp.getParent() != null) {
             path.add(tmp.getParent());
             tmp = tmp.getParent();
         }
