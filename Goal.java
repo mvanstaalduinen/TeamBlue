@@ -8,8 +8,11 @@ public class Goal {
     
     public boolean checkState(SearchNode orig)
     {
+	double d = orig.getCurrent().getState().size()-1;
+	d = Math.sqrt(d);
+	int n = (int) d;
 	for (Piece p : orig.getCurrent().getState()) {
-		if (!p.checkSorted()) {
+		if (!p.checkSorted(n)) {
 			return false;
 		}
 	}
