@@ -9,6 +9,7 @@ public class State {
     
     private ArrayList<Piece> state = new ArrayList<>();
     private int totalFriends;
+    private double finalFriends;
     
     State()
     {
@@ -51,8 +52,11 @@ public class State {
     public final int setFriends()
     {
         int friends = 0;
+        int n = 0;
         for (int i = 0; i < state.size(); i++) {
-             
+            if (state.get(i).getSmallDisk() > n) {
+                n = state.get(i).getSmallDisk();
+            }
             if ((i < (state.size() -1)) && (state.get(i).isEqual(state.get(i+1)))) {
                 friends = friends + 1;
             }
@@ -66,9 +70,17 @@ public class State {
                 friends = friends + 1;
             } 
         }
+        double temp;
+        temp = Math.ceil(n/2);
+        finalFriends = (n * (((n-2) * 2) + 2));
         totalFriends = friends;
         return friends;
     }
+    
+    public double getFinalTotal() {
+        return finalFriends;
+    }
+    
     
     public int getFriends() {
         return totalFriends;
