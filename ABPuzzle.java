@@ -45,11 +45,15 @@ public class ABPuzzle {
             state = tmp.getCurrent();
         }
         
+
+       /*
         while (tmp.getParent() != null) {
             path.add(tmp.getParent());
             tmp = tmp.getParent();
         }
-        
+        */
+        search.printTracePath(tmp);
+        /*
         for (SearchNode n : path) {
             System.out.println(n.getCurrent().toString());
         }
@@ -72,7 +76,7 @@ public class ABPuzzle {
             display all children state in standard out to get to the goal state
         */
         
-        System.out.println(state.toString());
+        //System.out.println(state.toString());
         System.out.println(board.toString());
         
     }
