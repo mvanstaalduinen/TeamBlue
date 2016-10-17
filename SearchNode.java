@@ -5,9 +5,9 @@ public class SearchNode {
     
     private State currentState; //state to which node corresponds to
     private SearchNode parentState; //parent State of the node
-    private int HvalueForManhattanDistance; //Heuristic for Man Distance
-    private int Gvalue; //Cost to reach the state
-    private int FevaluationOfState; //Hvalue Man Distace+G value Parent
+    private double HvalueForManhattanDistance; //Heuristic for Man Distance
+    private double Gvalue; //Cost to reach the state
+    private double FevaluationOfState; //Hvalue Man Distace+G value Parent
     
     public SearchNode(State state){ //constructor method
         currentState = state;
@@ -20,18 +20,18 @@ public class SearchNode {
     public SearchNode(State child, SearchNode parent){ //override
         currentState = child;
         parentState = parent;
-        HvalueForManhattanDistance = child.setFriends();
+        HvalueForManhattanDistance = (child.getFinalTotal() - child.getFriends());
         Gvalue = parent.getGvalue();
         FevaluationOfState= HvalueForManhattanDistance+Gvalue;
     }
     //get Values Methods
-    public int getHvalueMD () {
+    public double getHvalueMD () {
         return(HvalueForManhattanDistance);
     }
-    public int getGvalue () {
+    public double getGvalue () {
         return(Gvalue);
     }
-    public int getFevaluation() {
+    public double getFevaluation() {
         return(FevaluationOfState);
     }
     public SearchNode getParent() {
