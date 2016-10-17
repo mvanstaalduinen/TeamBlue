@@ -70,8 +70,6 @@ public class State {
                 friends = friends + 1;
             } 
         }
-        double temp;
-        temp = Math.ceil(n/2);
         finalFriends = (n * (((n-2) * 2) + 2));
         totalFriends = friends;
         return friends;
