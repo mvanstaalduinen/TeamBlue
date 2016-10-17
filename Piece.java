@@ -33,15 +33,17 @@ public class Piece {
     
     public boolean checkSorted(int n) 
     {
-        if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
+        if ((smallDisk == 1) && (smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk()) ) {
+            return true;
+        } else if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
         } else if ((smallDisk == 0)) {
 	    if (rightNeighbour.getSmallDisk() == leftNeighbour.getSmallDisk()) {
 	        return false;
 	    }
-            else if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk <= leftNeighbour.getSmallDisk())) {
+            else if ((smallDisk < rightNeighbour.getSmallDisk()) && (smallDisk < leftNeighbour.getSmallDisk())) {
                 return true;
-            }
+            } return false;
          } else if (0 == leftNeighbour.getSmallDisk()) {
              if (leftNeighbour.getLeftNeighbour() < smallDisk) {
                  return true;
@@ -50,7 +52,7 @@ public class Piece {
              }
               
          } else if (0 == rightNeighbour.getSmallDisk()) {
-             if ((rightNeighbour.getRightNeighbour() > smallDisk) || (rightNeighbour.getRightNeighbour() == 1 && smallDisk == n)) {
+             if (((rightNeighbour.getRightNeighbour() == 1) && (smallDisk == n)) || (rightNeighbour.getRightNeighbour() > smallDisk) ) {
                  return true;
              }       
              else {
@@ -58,6 +60,8 @@ public class Piece {
          } else if ((smallDisk == n) && (1 == rightNeighbour.getSmallDisk())) {
              return true;
          }
+        System.out.println("Checking value: " + smallDisk);
+        System.out.println();
             return false;
     }
 
