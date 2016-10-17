@@ -131,7 +131,7 @@ public class State {
         result.getState().get(firstIndex).setSmallDisk(tempSecTop);
         result.getState().get(childIndex).setSmallDisk(tempFirstTop);
         
-        int m = result.setFriends(); // int value placeholder can remove later
+        result.setFriends(); // int value placeholder can remove later
         result.setNeighbours();
         
         return result;

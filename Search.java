@@ -38,10 +38,10 @@ public class Search {
         ArrayList<SearchNode> listOfNodes = new ArrayList<>();
         listOfNodes = fringe.getEverything();
         int bestNodeIndex = 0;
-        int bestValue;
+        double bestValue;
         bestValue = listOfNodes.get(0).getFevaluation();
         for (SearchNode item : listOfNodes) {
-            if (item.getFevaluation() > bestValue) { //heuristic here
+            if (item.getFevaluation() < bestValue) { //heuristic here
                 bestNodeIndex = listOfNodes.indexOf(item);
                 bestValue=item.getFevaluation();
             } 
@@ -93,7 +93,7 @@ public class Search {
         }
         for (SearchNode itemToAdd : childrenNodes) {
             if (closed.checkNode(itemToAdd) == false ) {
-                fringe.addToNode(itemToAdd);
+                System.out.println("Child " + itemToAdd.toString());
             }
         }
         closed.addToNode(nodeToExpand); //add parent node to closed list

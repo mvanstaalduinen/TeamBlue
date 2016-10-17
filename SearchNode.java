@@ -47,10 +47,10 @@ public class SearchNode {
     public void setCurrent(State newCurrent) {
         currentState = newCurrent;
     }
-    public void setHvalueMD(int newHvalue) {
+    public void setHvalueMD(double newHvalue) {
         HvalueForManhattanDistance=newHvalue;
     }
-    public void setGvalue(int newGvalue) {
+    public void setGvalue(double newGvalue) {
         Gvalue=newGvalue;
     }
     public void setFvalue () {
