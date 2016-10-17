@@ -1,5 +1,3 @@
-
-
 public class Piece {
 
     private int smallDisk;
@@ -38,7 +36,7 @@ public class Piece {
         } else if ((smallDisk <= rightNeighbour.getSmallDisk()) && (smallDisk >= leftNeighbour.getSmallDisk())) {
             return true;
         } else if ((smallDisk == 0)) {
-	    if (rightNeighbour.getSmallDisk() == leftNeighbour.getSmallDisk()) {
+	    if ((rightNeighbour.getSmallDisk()) == (leftNeighbour.getSmallDisk())) {
 	        return false;
 	    }
             else if ((smallDisk < rightNeighbour.getSmallDisk()) && (smallDisk < leftNeighbour.getSmallDisk())) {
@@ -46,6 +44,12 @@ public class Piece {
             } return false;
          } else if (0 == leftNeighbour.getSmallDisk()) {
              if (leftNeighbour.getLeftNeighbour() < smallDisk) {
+             }
+            else if ((smallDisk <= (rightNeighbour.getSmallDisk())) && ((smallDisk <= leftNeighbour.getSmallDisk()))) {
+                return true;
+            }
+         } else if (0 == (leftNeighbour.getSmallDisk())) {
+             if ((leftNeighbour.getLeftNeighbour()) < smallDisk) {
                  return true;
              } else {
                  return false;
@@ -53,18 +57,21 @@ public class Piece {
               
          } else if (0 == rightNeighbour.getSmallDisk()) {
              if (((rightNeighbour.getRightNeighbour() == 1) && (smallDisk == n)) || (rightNeighbour.getRightNeighbour() > smallDisk) ) {
+             if ((rightNeighbour.getRightNeighbour() > smallDisk) || ((rightNeighbour.getRightNeighbour() == 1) && (smallDisk == n))) {
                  return true;
-             }       
+             }  
+             }     
              else {
                 return false; }
-         } else if ((smallDisk == n) && (1 == rightNeighbour.getSmallDisk())) {
+         } 
+          else if ((smallDisk == n) && (1 == rightNeighbour.getSmallDisk())) {
              return true;
          }
         System.out.println("Checking value: " + smallDisk);
         System.out.println();
             return false;
     }
-
+    
     public int getRightNeighbour()
     {
 	return rightNeighbour.getSmallDisk();
