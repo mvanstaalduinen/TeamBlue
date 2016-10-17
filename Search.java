@@ -36,20 +36,20 @@ public class Search {
     Outputs: the selected node based on the Heuristics
     */
     public SearchNode getBest() {
-        ArrayList<SearchNode> listOfNodes = new ArrayList<>();
-        listOfNodes = fringe.getEverything();
+        //ArrayList<SearchNode> listOfNodes = new ArrayList<>();
+        //listOfNodes = fringe.getEverything();
         int bestNodeIndex = 0;
+        int counter;
         double bestValue;
-        bestValue = listOfNodes.get(0).getFevaluation();
-        for (SearchNode item : listOfNodes) {
-            if (item.getFevaluation() < bestValue) { //heuristic here
-                bestNodeIndex = listOfNodes.indexOf(item);
-                bestValue=item.getFevaluation();
+        bestValue = fringe.getNode(0).getFevaluation();
+        System.out.println("Size: "+fringe.getSize());
+        for (counter = 0; counter < (fringe.getSize()-1); counter++) {
+            if (fringe.getNode(counter).getFevaluation() < bestValue) { //heuristic here
+                bestNodeIndex = counter;
+                bestValue=fringe.getNode(counter).getFevaluation();
             } 
         }
-        SearchNode test = fringe.getNode(bestNodeIndex);
-        fringe.removeNode(test);
-        return(test);
+        return(fringe.removeNode(fringe.getNode(bestNodeIndex)));
         /*********************for Testing**********/
         //return(Node.getNode(0));
     }
