@@ -30,7 +30,10 @@ public class NodeList {
     public SearchNode removeNode(SearchNode nodeToRemove) {
         int index;
         index = Node.indexOf(nodeToRemove);
-        return(Node.remove(index));
+        if (index!=-1) {
+            return(Node.remove(index));
+        }
+        return(null);
     }
     
     public boolean checkNode(SearchNode nodeToCheck)
@@ -61,7 +64,7 @@ public class NodeList {
         
         String stringOutput = "";
         for (SearchNode NodeItem : Node  ) {
-            stringOutput += NodeItem.getCurrent() + "\n";
+            stringOutput += NodeItem.getCurrent() + " f=" + NodeItem.getFevaluation() + "\n";
         }
         return stringOutput;
     }
