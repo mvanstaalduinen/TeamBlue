@@ -12,7 +12,7 @@ CLASSES = \
 	State.java \
 	Goal.java \
 	ClosedList.java \
-	FringeList.java \
+	NodeList.java \
 	GroupPiece.java \
 	Search.java \
 	SearchNode.java
