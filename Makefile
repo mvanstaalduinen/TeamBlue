@@ -11,9 +11,7 @@ CLASSES = \
 	Piece.java \
 	State.java \
 	Goal.java \
-	ClosedList.java \
 	NodeList.java \
-	GroupPiece.java \
 	Search.java \
 	SearchNode.java
 
@@ -24,4 +22,4 @@ classes: $(CLASSES:.java=.class)
 clean:
 	$(RM) *.class
 run:
-	java -Xmx64m ABPuzzle $(arg)
+	java -Xmx256m ABPuzzle $(arg)

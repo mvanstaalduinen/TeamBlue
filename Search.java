@@ -73,6 +73,7 @@ public class Search {
             traced.addToNode(nodeForInspection);
             nodeForInspection = nodeForInspection.getParent();
         }
+
         Collections.reverse(traced.getEverything());
         System.out.println("TRACED IN TRACEPATH:\n"+traced.toString());
     }
