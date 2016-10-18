@@ -35,23 +35,26 @@ public class ABPuzzle {
         Search search = new Search(state);
         Object object = new Object();
         int count = 0;
+        int limit = 6;
+        
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             search.Expand(tmp, board);
-
-            System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
-            System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
-            System.out.println("------------------------");
-            tmp = search.getBest();
             
+            //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
+            //System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
+            //System.out.println("------------------------");
+            tmp = search.getBest(limit);
+            if (tmp == null) { //starting limit
+                System.out.println("Over Limit");
+                break;
+            } 
+
             state = tmp.getCurrent();
         }
-            
-        System.out.println("Solution is:");
-        search.printTracePath(tmp);
+        if (tmp != null) {    
+            System.out.println("Solution is:");
+            search.printTracePath(tmp);
+        }
     }
 }
-
-    
-
-
