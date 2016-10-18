@@ -6,8 +6,8 @@ public class ABPuzzle {
         
         InputGetter ig = new InputGetter();       
         
-        int willBeFromConsole = Integer.valueOf(args[0]);
-       	//int willBeFromConsole = ig.getFirstNumber();
+        //int willBeFromConsole = Integer.valueOf(args[0]);
+       	int willBeFromConsole = ig.getFirstNumber();
         System.out.println("firstNumber: " + willBeFromConsole);
         Board board = ig.getBoard(willBeFromConsole);
        	System.out.println("board: " + board.toString());
@@ -42,10 +42,11 @@ public class ABPuzzle {
             tmp = search.getBest(limit);
             if (tmp == null) { //starting limit
                 System.out.println("Over Limit");
-                break;
+                search = new Search(state);
+                tmp = new SearchNode(state);
+                limit = limit + 1;          
             } 
 
-            state = tmp.getCurrent();
         }
         if (tmp != null) {    
             System.out.println("Solution is:");
