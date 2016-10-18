@@ -17,10 +17,6 @@ public class ABPuzzle {
         state.setFriends();
         SearchNode tmp = new SearchNode(state);
 	Goal goal = new Goal();
-        System.out.println("Value of total goal friends: " + state.getFinalTotal());
-                System.out.println("Value of total goal friends: " + state.getFriends());
-	System.out.println("goals: " + goal.toString());
-	System.out.println(goal.checkState(tmp));
         
        if (goal.checkState(tmp)) {
             System.out.println("The puzzle is solved.");
@@ -38,7 +34,6 @@ public class ABPuzzle {
         int limit = 6;
         
         while (!goal.checkState(tmp)) {
-            // not stopping even when goal has been met?
             search.Expand(tmp, board);
             
             //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());

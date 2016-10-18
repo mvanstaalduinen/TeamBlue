@@ -19,7 +19,7 @@ public class State {
     {
         state = (ArrayList<Piece>) source.getState();
         //setNeighbours();
-        totalFriends = setFriends();
+        setFriends();
         
     }
     
@@ -27,7 +27,7 @@ public class State {
     {
         state = source;
         //setNeighbours();
-        totalFriends = setFriends();
+        setFriends();
     }
     
     public void setNeighbours() 
@@ -49,7 +49,7 @@ public class State {
         }
     }
     
-    public final int setFriends()
+    public final void setFriends()
     {
         int friends = 0;
         int n = 0;
@@ -72,7 +72,6 @@ public class State {
         }
         finalFriends = (n * (((n-2) * 2) + 2));
         totalFriends = friends;
-        return friends;
     }
     
     public double getFinalTotal() {

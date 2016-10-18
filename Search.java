@@ -16,7 +16,7 @@ public class Search {
     Input: The initialstate
     Outputs: None
     */
-    public Search(State initialState){
+    public Search(State initialState) {
         fringe = new NodeList();
         closed = new NodeList();
         traced = new NodeList();

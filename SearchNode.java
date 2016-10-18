@@ -12,7 +12,7 @@ public class SearchNode {
     public SearchNode(State state){ //constructor method
         currentState = state;
         parentState=null;
-        HvalueForManhattanDistance = state.setFriends();
+        HvalueForManhattanDistance = (state.getFinalTotal() - state.getFriends());
         Gvalue = 0;
         FevaluationOfState= HvalueForManhattanDistance+Gvalue;
     }
