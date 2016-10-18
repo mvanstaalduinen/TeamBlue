@@ -6,8 +6,8 @@ public class ABPuzzle {
         
         InputGetter ig = new InputGetter();       
         
-        int willBeFromConsole = Integer.valueOf(args[0]);
-       	//int willBeFromConsole = ig.getFirstNumber();
+        //int willBeFromConsole = Integer.valueOf(args[0]);
+       	int willBeFromConsole = ig.getFirstNumber();
         System.out.println("firstNumber: " + willBeFromConsole);
         Board board = ig.getBoard(willBeFromConsole);
        	System.out.println("board: " + board.toString());
@@ -31,7 +31,7 @@ public class ABPuzzle {
         Search search = new Search(state);
         Object object = new Object();
         int count = 0;
-        int limit = 6;
+        int limit = 14;
         
         while (!goal.checkState(tmp)) {
             search.Expand(tmp, board);
