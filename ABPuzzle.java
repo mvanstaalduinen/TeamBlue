@@ -35,23 +35,27 @@ public class ABPuzzle {
         Search search = new Search(state);
         Object object = new Object();
         int count = 0;
+        int limit = 0;
         while (!goal.checkState(tmp)) {
             // not stopping even when goal has been met?
             search.Expand(tmp, board);
-
-            System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
-            System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
-            System.out.println("------------------------");
-            tmp = search.getBest();
+            if (limit==9)
+            {
+                System.out.println("Over Limit");
+                break;
+            }
             
+            //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
+            //System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
+            //System.out.println("------------------------");
+            System.out.println(limit);
+            tmp = search.getBest(limit); //starting limit 
+
             state = tmp.getCurrent();
+            limit+=1;
         }
             
         System.out.println("Solution is:");
         search.printTracePath(tmp);
     }
 }
-
-    
-
-
