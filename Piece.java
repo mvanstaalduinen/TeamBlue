@@ -44,15 +44,15 @@ public class Piece {
             } return false;
             
          } else if (0 == leftNeighbour.getSmallDisk()) {
-             if (leftNeighbour.getLeftNeighbour() < smallDisk) {
-                 return true;
-             } else if (leftNeighbour.getLeftNeighbour() == n) {
+             //if (leftNeighbour.getLeftNeighbour() < smallDisk) {
+               //  return true;
+              if (leftNeighbour.getLeftNeighbour() == n) {
                 return true;
             }
          } else if (0 == rightNeighbour.getSmallDisk()) {
-            if ((rightNeighbour.getRightNeighbour() > smallDisk) ) {
-                 return true;
-            } else if ((smallDisk == n) && (rightNeighbour.getRightNeighbour() == 1)) {
+            //if ((rightNeighbour.getRightNeighbour() > smallDisk) ) {
+             //    return true;
+             if ((smallDisk == n) && (rightNeighbour.getRightNeighbour() == 1)) {
                 return true;
          }  else {
                 return false; }
