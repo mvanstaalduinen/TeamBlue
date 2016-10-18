@@ -6,8 +6,8 @@ public class ABPuzzle {
         
         InputGetter ig = new InputGetter();       
         
-        //int willBeFromConsole = Integer.valueOf(args[0]);
-       	int willBeFromConsole = ig.getFirstNumber();
+        int willBeFromConsole = Integer.valueOf(args[0]);
+       	//int willBeFromConsole = ig.getFirstNumber();
         Board board = ig.getBoard(willBeFromConsole);
         State state = ig.getState(willBeFromConsole);
         
