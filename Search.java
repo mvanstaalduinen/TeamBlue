@@ -38,27 +38,22 @@ public class Search {
     public SearchNode getBest(int limit) {
         //ArrayList<SearchNode> listOfNodes = new ArrayList<>();
         //listOfNodes = fringe.getEverything();
-        int bestNodeIndex = -1;
+        int bestNodeIndex = 0;
         int counter;
         double bestValue;
+        boolean flag = false;
+        
         bestValue = fringe.getNode(0).getFevaluation();
-
         for (counter = 0; counter < (fringe.getSize()-1); counter++) {
-            if ((fringe.getNode(counter).getFevaluation() < bestValue) && (fringe.getNode(counter).getGvalue() <= limit)) { //heuristic here
+            if ((fringe.getNode(counter).getFevaluation() <= bestValue) && (fringe.getNode(counter).getFevaluation() <= limit)) { //heuristic here
                 bestNodeIndex = counter;
                 bestValue=fringe.getNode(counter).getFevaluation();
-            } 
+                flag = true;
+            }
         }
-        if (bestNodeIndex == -1) {
-            for (counter = 0; counter < (fringe.getSize()-1); counter++) {
-                if (fringe.getNode(counter).getFevaluation() <= bestValue) { //heuristic here
-                    bestNodeIndex = counter;
-                    bestValue=fringe.getNode(counter).getFevaluation();
-            } 
-        }
-        }
-        System.out.println(fringe.getSize());
-        System.out.println("bestNodeIndex: " + bestNodeIndex);
+        if (flag == false) {
+            return(null);
+        } 
         return(fringe.removeNode(fringe.getNode(bestNodeIndex)));
         /*********************for Testing**********/
         //return(Node.getNode(0));
