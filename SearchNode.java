@@ -63,4 +63,13 @@ public class SearchNode {
         //return state.toString();
         return (currentState.toString());
     }
+    @Override
+    public boolean equals(Object o)
+    {
+	SearchNode sn = (SearchNode) o;
+
+	return sn.getCurrent() == currentState;
+
+    }
+
 }

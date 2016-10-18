@@ -11,9 +11,7 @@ CLASSES = \
 	Piece.java \
 	State.java \
 	Goal.java \
-	ClosedList.java \
 	NodeList.java \
-	GroupPiece.java \
 	Search.java \
 	SearchNode.java
 
