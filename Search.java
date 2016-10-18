@@ -90,7 +90,6 @@ public class Search {
         childrenStates = currentStateforNode.produceChildren(board);
         for (State item : childrenStates) { //for each state expand to node and add to list
             SearchNode newChildNode = new SearchNode(item , nodeToExpand);
-            newChildNode.setGvalue(newChildNode.getGvalue()+1); //increase cost by 1 for children?? 
             childrenNodes.add(newChildNode);
         }
         for (SearchNode itemToAdd : childrenNodes) {

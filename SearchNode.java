@@ -21,7 +21,7 @@ public class SearchNode {
         currentState = child;
         parentState = parent;
         HvalueForManhattanDistance = (child.getFinalTotal() - child.getFriends());
-        Gvalue = parent.getGvalue();
+        Gvalue = parent.getGvalue() + 1; // parent + cost to get to child
         FevaluationOfState= HvalueForManhattanDistance+Gvalue;
     }
     //get Values Methods
