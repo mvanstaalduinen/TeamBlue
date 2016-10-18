@@ -44,6 +44,8 @@ public class ABPuzzle {
             System.out.println("Solution is:");
             System.out.println(state.toString());
             search.printTracePath(tmp);
+        } else {
+            System.out.println("There is no solution.");
         }
     }
 }

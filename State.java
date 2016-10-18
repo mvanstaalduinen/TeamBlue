@@ -18,7 +18,6 @@ public class State {
     State(State source)
     {
         state = (ArrayList<Piece>) source.getState();
-        //setNeighbours();
         setFriends();
         
     }
@@ -26,7 +25,6 @@ public class State {
     State(ArrayList<Piece> source)
     {
         state = source;
-        //setNeighbours();
         setFriends();
     }
     
@@ -95,12 +93,10 @@ public class State {
     @Override
     public String toString()
     {
-        //return state.toString();
-        
         String result = "";
         
         for (Piece item : state) {
-            result += item.getSmallDisk() + "  ";
+            result += item.getSmallDisk() + " ";
         }
         return result;
     }
@@ -112,9 +108,6 @@ public class State {
     
     public State changeState(int firstIndex, int childIndex, int distance)
     {   
-        /*if (childIndex >= state.size() || secondIndex < 0) {
-            secondIndex = (secondIndex % state.size());
-        }*/
         if (childIndex < 0) {
             childIndex = abs(childIndex);
         }

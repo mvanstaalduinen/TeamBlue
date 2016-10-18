@@ -12,7 +12,6 @@ public class Search {
     
     /*startSearch: Search.startSeach(initialstate);
     Description: creates the fringes, closed list and starts the search
-    >>>>>>>>>>I Think this is not needed maybe<<<<<<<<<<<<<<<<<< 
     Input: The initialstate
     Outputs: None
     */
@@ -21,7 +20,6 @@ public class Search {
         closed = new NodeList();
         traced = new NodeList();
         SearchNode rootNode = new SearchNode(initialState);
-        //fringe.addToNode(rootNode);
     }
     
     /* Moves checked Node from Fring to Closed */
@@ -31,13 +29,10 @@ public class Search {
     
     /* getBest:  Search.getBest(Nodelist)
     Description: Gets the best Node based on the Heuristics
-    >>>>>>>>>>>>>>>>>>>TESTING ONLY GRABS THE FIRST NODE<<<<<<<<<<<
     Inputs: fringe: The fringe List
     Outputs: the selected node based on the Heuristics
     */
     public SearchNode getBest(int limit) {
-        //ArrayList<SearchNode> listOfNodes = new ArrayList<>();
-        //listOfNodes = fringe.getEverything();
         int bestNodeIndex = 0;
         int counter;
         double bestValue;
@@ -55,8 +50,6 @@ public class Search {
             return(null);
         } 
         return(fringe.removeNode(fringe.getNode(bestNodeIndex)));
-        /*********************for Testing**********/
-        //return(Node.getNode(0));
     }
     
     public boolean isInClosed(SearchNode checkNode)
@@ -106,7 +99,6 @@ public class Search {
             }
         }
         closed.addToNode(nodeToExpand);
-        //movingCheckedNode(nodeToExpand); //add parent node to closed list
         return(childrenNodes); 
     }
     

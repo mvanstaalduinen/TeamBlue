@@ -17,7 +17,6 @@ public class NodeList {
     public void addToNode(SearchNode nodeToAdd) 
     {
         Node.add(nodeToAdd);
-        //size+=1;
     }
     
     //outputs a reference to the ArrayList within Node.
@@ -36,7 +35,6 @@ public class NodeList {
         if (index!=-1) {
             return(Node.remove(index));
         }
-        //size-=1;
         return(null);
     }
     
@@ -68,7 +66,6 @@ public class NodeList {
     @Override
     public String toString()
     {
-        //return state.toString();
         
         String stringOutput = "";
         for (SearchNode NodeItem : Node  ) {

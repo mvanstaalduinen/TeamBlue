@@ -33,12 +33,6 @@ public class Board {
     public String toString()
     {
         return board.toString();
-        
-       /* String result = "";
-        for (int item : board) {
-            result += item;
-        }
-        return result;*/
     }
     
     public int getPosition(int pos)
@@ -49,10 +43,5 @@ public class Board {
     public List<Integer> getBoard()
     {
         return board;
-    }
-    
-    public void reverseBoard()
-    {
-        Collections.reverse(board);
     }
 }
