@@ -80,7 +80,7 @@ public class Search {
         }
 
         Collections.reverse(traced.getEverything());
-        System.out.println("TRACED IN TRACEPATH:\n"+traced.toString());
+        System.out.println(traced.toString());
     }
     
     /*

@@ -72,7 +72,7 @@ public class NodeList {
         
         String stringOutput = "";
         for (SearchNode NodeItem : Node  ) {
-            stringOutput += NodeItem.getCurrent() + " f=" + NodeItem.getFevaluation() + " h=" + NodeItem.getHvalueMD()+ " g=" + NodeItem.getGvalue() + "\n";
+            stringOutput += NodeItem.getCurrent() + "\n";
         }
         return stringOutput;
     }
