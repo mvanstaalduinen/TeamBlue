@@ -55,20 +55,16 @@ public class State {
             if (state.get(i).getSmallDisk() > n) {
                 n = state.get(i).getSmallDisk();
             }
-            if ((i < (state.size() -1)) && (state.get(i).isEqual(state.get(i+1)))) {
+            if (i < (state.size() -1)) {
+                    if (state.get(i).isEqual(state.get(i+1))) {
                 friends = friends + 1;
+                    }
             }
-            if ((i > 0) && (state.get(i).isEqual(state.get(i-1)))) {
-                friends = friends + 1;
-            }
-            if ((i == 0) && (state.get(i).isEqual(state.get(state.size()-1)))) {
-                friends = friends + 1;
-            }
-            if ((i == (state.size() -1)) && (state.get(i).isEqual(state.get(0)))) {
+             if ((i == (state.size() -1)) && (state.get(i).isEqual(state.get(0)))) {
                 friends = friends + 1;
             } 
         }
-        finalFriends = (n * (((n-2) * 2) + 2));
+        finalFriends = ((n-1) * n); //(n * (((n-2) * 2) + 2));
         totalFriends = friends;
     }
     

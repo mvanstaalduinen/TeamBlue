@@ -69,7 +69,7 @@ public class NodeList {
         
         String stringOutput = "";
         for (SearchNode NodeItem : Node  ) {
-            stringOutput += NodeItem.getCurrent() + "\n";
+            stringOutput += NodeItem.getCurrent() +  "\n";
         }
         return stringOutput;
     }
