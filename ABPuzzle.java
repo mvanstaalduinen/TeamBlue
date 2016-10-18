@@ -48,7 +48,6 @@ public class ABPuzzle {
             //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
             //System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
             //System.out.println("------------------------");
-            System.out.println(limit);
             tmp = search.getBest(limit); //starting limit 
 
             state = tmp.getCurrent();

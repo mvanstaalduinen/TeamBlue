@@ -51,12 +51,14 @@ public class Search {
         }
         if (bestNodeIndex == -1) {
             for (counter = 0; counter < (fringe.getSize()-1); counter++) {
-                if (fringe.getNode(counter).getFevaluation() < bestValue) { //heuristic here
+                if (fringe.getNode(counter).getFevaluation() <= bestValue) { //heuristic here
                     bestNodeIndex = counter;
                     bestValue=fringe.getNode(counter).getFevaluation();
             } 
         }
         }
+        System.out.println(fringe.getSize());
+        System.out.println("bestNodeIndex: " + bestNodeIndex);
         return(fringe.removeNode(fringe.getNode(bestNodeIndex)));
         /*********************for Testing**********/
         //return(Node.getNode(0));
