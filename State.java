@@ -198,7 +198,7 @@ public class State {
 		}
 
 		final State other = (State) o;
-		System.out.println("first: " + state + " other: " + other);
+		//System.out.println("first: " + state + " other: " + other);
 		for (int i = 0; i < state.size(); i++) {
 			if (state.get(i).getSmallDisk() != other.getState().get(i).getSmallDisk()) {
 				return false;

@@ -16,6 +16,7 @@ public class ABPuzzle {
         state.setNeighbours();
         state.setFriends();
         SearchNode tmp = new SearchNode(state);
+        SearchNode root = new SearchNode(state);
 	Goal goal = new Goal();
         
        if (goal.checkState(tmp)) {
@@ -31,9 +32,11 @@ public class ABPuzzle {
         Search search = new Search(state);
         Object object = new Object();
         int count = 0;
-        int limit = 14;
-        
+        int limitflag = -1;
+        int limit = 6;
         while (!goal.checkState(tmp)) {
+            //System.out.println(tmp.getCurrent().toString());
+            while ((limitflag!=0) && (!goal.checkState(tmp))) {
             search.Expand(tmp, board);
             
             //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
@@ -42,10 +45,15 @@ public class ABPuzzle {
             tmp = search.getBest(limit);
             if (tmp == null) { //starting limit
                 System.out.println("Over Limit");
-                break;
+                limitflag = 0;
             } 
 
-            state = tmp.getCurrent();
+            //state = tmp.getCurrent();
+            }
+            tmp = new SearchNode(state);
+            search = new Search(state);
+            limit+=1;
+            limitflag = -1;
         }
         if (tmp != null) {    
             System.out.println("Solution is:");
