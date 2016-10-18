@@ -33,28 +33,37 @@ public class ABPuzzle {
         Object object = new Object();
         int count = 0;
         int limitflag = -1;
-        int limit = 6;
-        while (!goal.checkState(tmp)) {
+        int limit = 10;
+        boolean goalFound = false;
+        do {
+            tmp = new SearchNode(state);
+            search = new Search(state);
             //System.out.println(tmp.getCurrent().toString());
-            while ((limitflag!=0) && (!goal.checkState(tmp))) {
+            while ((limitflag!=0) && (goalFound == false)) {
+            // not stopping even when goal has been met?
             search.Expand(tmp, board);
             
             //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
             //System.out.println("Closed: " + search.testGetList("closed").getEverything().size()+"\n" + search.testGetList("closed").toString());
             //System.out.println("------------------------");
             tmp = search.getBest(limit);
+            //System.out.println("Fringe: "+ search.testGetList("fringe").getEverything().size()+"\n" + search.testGetList("fringe").toString());
             if (tmp == null) { //starting limit
-                System.out.println("Over Limit");
+                //System.out.println("Over Limit" + limit);
                 limitflag = 0;
+            }
+            else {
+                goalFound=goal.checkState(tmp); //check for goal
             } 
 
             //state = tmp.getCurrent();
             }
-            tmp = new SearchNode(state);
-            search = new Search(state);
-            limit+=1;
+            //System.out.println("increase limit " + limit);
+
+            limit+=2;
             limitflag = -1;
-        }
+            
+        } while (goalFound == false);
         if (tmp != null) {    
             System.out.println("Solution is:");
             search.printTracePath(tmp);
