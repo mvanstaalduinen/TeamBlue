@@ -23,3 +23,4 @@ clean:
 	$(RM) *.class
 run:
 	java -Xmx256m ABPuzzle $(arg)
+
