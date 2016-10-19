@@ -30,7 +30,12 @@ public class ABPuzzle {
         int limit = 6;
         
         while (!goal.checkState(tmp)) {
-            search.Expand(tmp, board);
+            try {
+                search.Expand(tmp, board);
+            } catch (OutOfMemoryError e) {
+                System.out.println("Out of memory.");
+                System.exit(1);
+            }
             
             tmp = search.getBest(limit);
             if (tmp == null) { //starting limit
